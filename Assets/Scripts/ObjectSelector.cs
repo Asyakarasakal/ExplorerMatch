@@ -20,6 +20,12 @@ public class ObjectSelector : MonoBehaviour
             if(Physics.Raycast(ray, out hit) )
             {
                 Debug.Log(hit.collider.gameObject.name);
+
+                SelectableObject selectable = hit.collider.GetComponent<SelectableObject>();
+                if(selectable != null)
+                {
+                    selectable.Highlight();
+                }
             }
         }
     }

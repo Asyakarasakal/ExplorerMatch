@@ -19,4 +19,5 @@ MemoryCaptures/
 *.booproj
 
 .vscode/
-.idea/.vs/
+.idea/
+.vs/
