@@ -9,7 +9,10 @@ public class TrayManager : MonoBehaviour
     public static TrayManager Instance;
 
     [Header("Tray")]
+
     public Transform slotContainer;
+
+    public Transform matchAnimationLayer;
 
     [Header("Camera")]
     public Camera mainCamera;
@@ -126,6 +129,7 @@ public class TrayManager : MonoBehaviour
                 }
 
                 RearrangeMatchedObjects(item.Key);
+                 
 
                 StartCoroutine(MatchRoutine(item.Key));
             }
@@ -258,40 +262,66 @@ public class TrayManager : MonoBehaviour
         }
     }
 
-    private void PlayMatchAnimation(List<TraySlot> matchedSlots)
+    private void PlayMatchAnimation(string objectID)
     {
-        RectTransform center = matchedSlots[1].IconImage.rectTransform;
-        RectTransform left = matchedSlots[0].IconImage.rectTransform;
-        RectTransform right = matchedSlots[2].IconImage.rectTransform;
+        List<TraySlot> matchedSlots = new List<TraySlot>();
 
-        Sequence sequence = DOTween.Sequence();
-
-        sequence.Join(left.DOAnchorPos(center.anchoredPosition, 0.25f));
-        sequence.Join(right.DOAnchorPos(center.anchoredPosition, 0.25f));
-
-        sequence.OnComplete(() =>
+        foreach (Transform slot in slotContainer)
         {
-            foreach (TraySlot traySlot in matchedSlots)
+            TraySlot traySlot = slot.GetComponent<TraySlot>();
+
+            if (!traySlot.IsOccupied)
+                continue;
+
+            if (traySlot.ObjectID == objectID)
             {
-                traySlot.IsOccupied = false;
-                traySlot.CurrentObject = null;
-                traySlot.ObjectID = "";
+                matchedSlots.Add(traySlot);
 
-                traySlot.IconImage.sprite = null;
-                traySlot.IconImage.enabled = false;
-
-                traySlot.IconImage.rectTransform.anchoredPosition = Vector2.zero;
+                if (matchedSlots.Count == 3)
+                    break;
             }
+        }
 
-            ShiftSlotsLeft();
-        });
+        TraySlot leftSlot = matchedSlots[0];
+        TraySlot centerSlot = matchedSlots[1];
+        TraySlot rightSlot = matchedSlots[2];
 
-        sequence.Play();
+        RectTransform leftIcon = leftSlot.IconImage.rectTransform;
+        RectTransform centerIcon = centerSlot.IconImage.rectTransform;
+        RectTransform rightIcon = rightSlot.IconImage.rectTransform;
+
+        Image leftClone = Instantiate(leftSlot.IconImage, matchAnimationLayer);
+        Image centerClone = Instantiate(centerSlot.IconImage, matchAnimationLayer);
+        Image rightClone = Instantiate(rightSlot.IconImage, matchAnimationLayer);
+
+        leftClone.rectTransform.position = leftIcon.position;
+        centerClone.rectTransform.position = centerIcon.position;
+        rightClone.rectTransform.position = rightIcon.position;
+
+        leftClone.rectTransform.localScale = Vector3.one;
+        centerClone.rectTransform.localScale = Vector3.one;
+        rightClone.rectTransform.localScale = Vector3.one;
+
+        leftSlot.IconImage.enabled = false;
+        centerSlot.IconImage.enabled = false;
+        rightSlot.IconImage.enabled = false;
+
+        Vector3 targetPosition = centerIcon.position;
+
+        leftClone.rectTransform.DOMove(targetPosition, 0.3f);
+        rightClone.rectTransform.DOMove(targetPosition, 0.3f);
+
+        Destroy(leftClone.gameObject, 0.35f);
+        Destroy(centerClone.gameObject, 0.35f);
+        Destroy(rightClone.gameObject, 0.35f);
     }
 
     private IEnumerator MatchRoutine(string objectID)
     {
-        TestMergeAnimation();
+        yield return new WaitForSeconds(0.4f);
+
+        PlayMatchAnimation(objectID);
+
         yield return new WaitForSeconds(0.55f);
 
         foreach (Transform slot in slotContainer)
@@ -315,28 +345,7 @@ public class TrayManager : MonoBehaviour
         ShiftSlotsLeft();
     }
 
-    private void TestIconAnimation(TraySlot traySlot)
-    {
-        traySlot.IconRect.DOAnchorPosX(20f, 0.15f)
-            .SetLoops(2, LoopType.Yoyo);
-    }
+   
 
-    private void TestMergeAnimation()
-    {
-        Debug.Log("TestMergeAnimation Çalýþtý");
-        Debug.Log(currentMatchStartIndex);
-
-        TraySlot left = slots[currentMatchStartIndex].GetComponent<TraySlot>();
-        TraySlot middle = slots[currentMatchStartIndex + 1].GetComponent<TraySlot>();
-        TraySlot right = slots[currentMatchStartIndex + 2].GetComponent<TraySlot>();
-
-        Debug.Log(left.IconRect.anchoredPosition.x);
-        Debug.Log(middle.IconRect.anchoredPosition.x);
-        Debug.Log(right.IconRect.anchoredPosition.x);
-
-        float middleX = middle.IconRect.anchoredPosition.x;
-
-        left.IconRect.DOAnchorPosX(middleX, 0.2f);
-        right.IconRect.DOAnchorPosX(middleX, 0.2f);
-    }
+    
 }
