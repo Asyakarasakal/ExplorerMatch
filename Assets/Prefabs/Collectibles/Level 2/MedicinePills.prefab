@@ -138,4 +138,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: MedicinePills
+  objectIcon: {fileID: 21300000, guid: 687175fcd58134642a9600bf19b360ce, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}

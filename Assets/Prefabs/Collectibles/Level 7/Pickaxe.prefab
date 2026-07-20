@@ -138,4 +138,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: Pickaxe
+  objectIcon: {fileID: 21300000, guid: c2ab5be711b8f97428ec003d371acc3b, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}

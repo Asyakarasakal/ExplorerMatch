@@ -138,4 +138,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: Saw
+  objectIcon: {fileID: 21300000, guid: 7ad99f9ce9832b943a96ea9e3984140a, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}

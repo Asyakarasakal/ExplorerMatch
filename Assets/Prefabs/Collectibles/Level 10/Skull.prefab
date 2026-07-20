@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: Skull
+  objectIcon: {fileID: 21300000, guid: e4e41a0af3baa364db6a569b0905437a, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
 --- !u!114 &6910594664656701517
 MonoBehaviour:

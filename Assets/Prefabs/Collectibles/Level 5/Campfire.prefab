@@ -138,4 +138,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: Campfire
+  objectIcon: {fileID: 21300000, guid: a0ed410863f287f44bce86cf0e8a5c0b, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}

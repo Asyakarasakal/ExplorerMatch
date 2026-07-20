@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: Diamond
+  objectIcon: {fileID: 21300000, guid: f246c9b0a61461d479e353904165b4e0, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
 --- !u!114 &-3468103866476129382
 MonoBehaviour:

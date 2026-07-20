@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: Backpack
+  objectIcon: {fileID: 21300000, guid: 47713cf08c288b64fb2a7c70b7f68756, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
 --- !u!114 &-1291965317420236279
 MonoBehaviour:

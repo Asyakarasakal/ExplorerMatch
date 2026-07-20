@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: Lighter
+  objectIcon: {fileID: 21300000, guid: 4be97eb433c4bd842910b7444ef225c4, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
 --- !u!114 &-7719957101154174548
 MonoBehaviour:

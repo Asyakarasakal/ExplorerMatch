@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: Rope
+  objectIcon: {fileID: 21300000, guid: bb2e0945baac2e74a8c76f6eb2f95b5f, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
 --- !u!114 &-4878900087906159229
 MonoBehaviour:

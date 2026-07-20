@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: Apple
+  objectIcon: {fileID: 21300000, guid: 4bc14dbe8a5592d46a653e7052460a96, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
 --- !u!114 &-1679058765440982112
 MonoBehaviour:

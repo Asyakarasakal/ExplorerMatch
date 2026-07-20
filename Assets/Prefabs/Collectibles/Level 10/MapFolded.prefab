@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: MapFolded
+  objectIcon: {fileID: 21300000, guid: eb93f4dbea5502945a6d7889502abd4c, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
 --- !u!114 &-3758714696027872973
 MonoBehaviour:
