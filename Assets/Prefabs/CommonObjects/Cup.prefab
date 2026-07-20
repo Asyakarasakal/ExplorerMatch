@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4911791423037464530}
   - component: {fileID: 5818873073150113195}
   - component: {fileID: 7137927418918652759}
+  - component: {fileID: 8817398348552671358}
+  - component: {fileID: -5038418271534055158}
   m_Layer: 0
   m_Name: Cup
   m_TagString: Untagged
@@ -105,3 +107,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08803654, y: 0.090234526, z: 0.12238081}
   m_Center: {x: 0, y: 0.04511727, z: 0.017172135}
+--- !u!114 &8817398348552671358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938688419449020665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.9843137, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &-5038418271534055158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938688419449020665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d8849571f77124da2e519c9d99d6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: Cup
+  selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}

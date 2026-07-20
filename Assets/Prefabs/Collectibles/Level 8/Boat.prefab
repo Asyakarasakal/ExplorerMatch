@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 467622541114845269}
   - component: {fileID: 5906715474453755809}
   - component: {fileID: 2318842019551671767}
+  - component: {fileID: 2031709827685184124}
+  - component: {fileID: 2642136424824691332}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -105,3 +107,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3560877, y: 0.7826531, z: 4.0400915}
   m_Center: {x: 0, y: 0.39132655, z: 1.2094457}
+--- !u!114 &2031709827685184124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054279310725254661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d8849571f77124da2e519c9d99d6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: Boat
+  selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
+--- !u!114 &2642136424824691332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054279310725254661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.9843137, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2186196243163006047}
   - component: {fileID: 6444700308140922514}
   - component: {fileID: 5694782466123005816}
+  - component: {fileID: 6185370131598980470}
+  - component: {fileID: 7562572657737334646}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -105,3 +107,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.30161452, y: 0.04056498, z: 0.30093113}
   m_Center: {x: 0.0008553639, y: 0.02028249, z: -0.0005136579}
+--- !u!114 &6185370131598980470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659074591997736932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.9843137, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &7562572657737334646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659074591997736932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d8849571f77124da2e519c9d99d6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: Plate
+  selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}

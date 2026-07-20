@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4701909332914172011}
   - component: {fileID: 3607764811525502602}
   - component: {fileID: 9036813121161977929}
+  - component: {fileID: 4148082776089657703}
+  - component: {fileID: -3416299637987565711}
   m_Layer: 0
   m_Name: Coral
   m_TagString: Untagged
@@ -105,3 +107,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32026586, y: 0.31175777, z: 0.29919153}
   m_Center: {x: 0.005017787, y: 0.15819024, z: 0.0014208332}
+--- !u!114 &4148082776089657703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2445609669403271936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.9843137, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &-3416299637987565711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2445609669403271936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d8849571f77124da2e519c9d99d6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: Coral
+  selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}

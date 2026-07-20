@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4195948944521856352}
   - component: {fileID: 1065268069870897743}
   - component: {fileID: 4461687708509488652}
+  - component: {fileID: 3622300665345254658}
+  - component: {fileID: -3758714696027872973}
   m_Layer: 0
   m_Name: MapFolded
   m_TagString: Untagged
@@ -105,3 +107,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.11576843, y: 0.115768425, z: 0.80203164}
   m_Center: {x: -0.0033040624, y: 0.008875418, z: 0}
+--- !u!114 &3622300665345254658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082374955534991723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d8849571f77124da2e519c9d99d6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: MapFolded
+  selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
+--- !u!114 &-3758714696027872973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082374955534991723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.9843137, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

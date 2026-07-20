@@ -8,6 +8,9 @@ public class BoardManager : MonoBehaviour
     [Header("Board")]
     public List<SelectableObject> boardObjects = new List<SelectableObject>();
 
+
+    public Transform spawnArea;
+
     private void Awake()
     {
         Instance = this;

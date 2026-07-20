@@ -79,6 +79,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 15b1a3d4a697f6f439a8775ad7e8a1c2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5454732668184100321}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 15b1a3d4a697f6f439a8775ad7e8a1c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7677492970073903101}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 15b1a3d4a697f6f439a8775ad7e8a1c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1579036374859499773}
   m_SourcePrefab: {fileID: 100100000, guid: 15b1a3d4a697f6f439a8775ad7e8a1c2, type: 3}
 --- !u!1 &9221402383757733268 stripped
 GameObject:
@@ -106,3 +112,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1087236, y: 1.3371986, z: 1.1087236}
   m_Center: {x: 0, y: 0.66435057, z: 0}
+--- !u!114 &7677492970073903101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221402383757733268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.9843137, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1579036374859499773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221402383757733268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d8849571f77124da2e519c9d99d6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: Barrel
+  selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}

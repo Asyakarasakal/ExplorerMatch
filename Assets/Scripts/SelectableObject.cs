@@ -104,7 +104,7 @@ public class SelectableObject : MonoBehaviour
         );
        
         pickupSequence.Join(
-            transform.DOScale(originalScale * 0.75f, 0.40f)
+            transform.DOScale(originalScale * 0.30f, 0.3f)
              .SetEase(Ease.InOutQuad)
         );
 

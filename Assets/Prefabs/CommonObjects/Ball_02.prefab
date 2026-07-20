@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3711417623095219805}
   - component: {fileID: 403555270254019511}
   - component: {fileID: 7877314169494647177}
+  - component: {fileID: 1794243126267756605}
+  - component: {fileID: -8447154274505967631}
   m_Layer: 0
   m_Name: Ball_02
   m_TagString: Untagged
@@ -107,3 +109,35 @@ CapsuleCollider:
   m_Height: 0.42742136
   m_Direction: 1
   m_Center: {x: -0.000000007450581, y: 0, z: 0.000000052154064}
+--- !u!114 &1794243126267756605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057204850015124117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.9843137, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &-8447154274505967631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057204850015124117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d8849571f77124da2e519c9d99d6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: Ball_02
+  selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}

@@ -79,6 +79,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1e1d2d0fb39ccf04691b2a8af0e7c6b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2037174796858899458}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1e1d2d0fb39ccf04691b2a8af0e7c6b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9013546507725801112}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1e1d2d0fb39ccf04691b2a8af0e7c6b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3497102854430830623}
   m_SourcePrefab: {fileID: 100100000, guid: 1e1d2d0fb39ccf04691b2a8af0e7c6b5, type: 3}
 --- !u!1 &8729160299309884927 stripped
 GameObject:
@@ -106,3 +112,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.50100076, y: 0.55436456, z: 0.81887126}
   m_Center: {x: 0, y: 0.28278226, z: 0.08809398}
+--- !u!114 &-9013546507725801112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729160299309884927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.9843137, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &3497102854430830623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729160299309884927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d8849571f77124da2e519c9d99d6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: WateringCan
+  selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
