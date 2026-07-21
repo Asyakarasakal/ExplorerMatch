@@ -21,6 +21,8 @@ public class TrayManager : MonoBehaviour
 
     private int currentMatchStartIndex;
 
+    private bool isMatching = false;
+
 
     private class TrayData
     {
@@ -89,6 +91,10 @@ public class TrayManager : MonoBehaviour
 
     public void CheckForMatch()
     {
+
+        if (isMatching)
+            return;
+
         Dictionary<string, int> objectCounts = new Dictionary<string, int>();
 
         foreach (Transform slot in slotContainer)
@@ -325,6 +331,8 @@ public class TrayManager : MonoBehaviour
 
     private IEnumerator MatchRoutine(string objectID)
     {
+        isMatching = true;
+
         yield return new WaitForSeconds(0.2f);
 
         PlayMatchAnimation(objectID);
@@ -343,7 +351,6 @@ public class TrayManager : MonoBehaviour
 
             traySlot.IsOccupied = false;
             traySlot.CurrentObject = null;
-
             traySlot.ObjectID = "";
 
             traySlot.IconImage.sprite = null;
@@ -353,9 +360,13 @@ public class TrayManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         ShiftSlotsLeft();
+
+        isMatching = false;
     }
+
 
    
 
-    
+
+
 }

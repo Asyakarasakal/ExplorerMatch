@@ -61,8 +61,25 @@ public class GoalManager : MonoBehaviour
 
                 Debug.Log(goal.objectID + " : " + goal.currentCount);
 
+                if (AreAllGoalsCompleted())
+                {
+                    Debug.Log("LEVEL COMPLETE!");
+                }
                 break;
             }
         }
+    }
+
+    public bool AreAllGoalsCompleted()
+    {
+        foreach (GoalData goal in goals)
+        {
+            if (goal.currentCount > 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
