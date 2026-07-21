@@ -101,6 +101,9 @@ public class SelectableObject : MonoBehaviour
                 .SetEase(Ease.InQuad)
         );
 
+
+        GoalManager.Instance.CollectGoal(objectID);
+
         pickupSequence.OnComplete(() =>
         {
             traySlot.IconImage.sprite = objectIcon;

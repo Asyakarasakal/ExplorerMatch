@@ -12,11 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0536e9930052546a1f3251ce7d6c6a, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  spawnPrefabs:
-  - {fileID: 79322480514146347, guid: 6d54d4d8e55b8b849b3c831226c5f5a4, type: 3}
-  - {fileID: 9199523957901858923, guid: 312731c6669111b479e622a47bc258fb, type: 3}
-  - {fileID: 4594802686170435702, guid: 83b67005ac4af4d4a94e8315e53cc6eb, type: 3}
-  - {fileID: 3291013059309220600, guid: 7192642b1ed93d44f901ec1f1617dd77, type: 3}
-  - {fileID: 7961679361901238741, guid: c41aa463949dfa24299fe62b477768d9, type: 3}
-  - {fileID: 7148280533411477312, guid: 94226337d553f9d418d79bbd3eafe5e0, type: 3}
-  spawnCount: 10
+  levelObjects:
+  - objectID: Apple
+    prefab: {fileID: 3291013059309220600, guid: 7192642b1ed93d44f901ec1f1617dd77, type: 3}
+    icon: {fileID: 21300000, guid: 4bc14dbe8a5592d46a653e7052460a96, type: 3}
+    count: 3
+    isGoalObject: 1
+  - objectID: Backpack
+    prefab: {fileID: 9199523957901858923, guid: 312731c6669111b479e622a47bc258fb, type: 3}
+    icon: {fileID: 21300000, guid: 47713cf08c288b64fb2a7c70b7f68756, type: 3}
+    count: 6
+    isGoalObject: 1
+  - objectID: Campfire
+    prefab: {fileID: 79322480514146347, guid: 6d54d4d8e55b8b849b3c831226c5f5a4, type: 3}
+    icon: {fileID: 21300000, guid: a0ed410863f287f44bce86cf0e8a5c0b, type: 3}
+    count: 6
+    isGoalObject: 0
+  - objectID: Rope
+    prefab: {fileID: 7148280533411477312, guid: 94226337d553f9d418d79bbd3eafe5e0, type: 3}
+    icon: {fileID: 21300000, guid: bb2e0945baac2e74a8c76f6eb2f95b5f, type: 3}
+    count: 6
+    isGoalObject: 0
+  - objectID: WaterBottle
+    prefab: {fileID: 7961679361901238741, guid: c41aa463949dfa24299fe62b477768d9, type: 3}
+    icon: {fileID: 21300000, guid: 287fe414c676dd44c8931a60606231b7, type: 3}
+    count: 6
+    isGoalObject: 0
+  - objectID: 'Bed '
+    prefab: {fileID: 4594802686170435702, guid: 83b67005ac4af4d4a94e8315e53cc6eb, type: 3}
+    icon: {fileID: 21300000, guid: 7ec12288e07827844a073fb2c7aa19c2, type: 3}
+    count: 3
+    isGoalObject: 1

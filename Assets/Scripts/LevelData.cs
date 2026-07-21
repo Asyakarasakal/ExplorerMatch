@@ -3,14 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
+[System.Serializable]
+public class LevelObject
+{
+    public string objectID;
+
+    public GameObject prefab;
+
+    public Sprite icon;
+
+    public int count;
+
+    public bool isGoalObject;
+}
+
+
 [CreateAssetMenu(fileName = "New Level",
     menuName = "Explorer Match/Level Data")]
 
 
 public class LevelData : ScriptableObject
 {
-    [Header("Spawn Settings")]
-    public List<GameObject> spawnPrefabs = new List<GameObject>();
-
-    public int spawnCount = 10;
+    [Header("Level Objects")]
+    public List<LevelObject> levelObjects = new List<LevelObject>();
 }

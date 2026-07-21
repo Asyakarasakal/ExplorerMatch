@@ -308,17 +308,24 @@ public class TrayManager : MonoBehaviour
 
         Vector3 targetPosition = centerIcon.position;
 
-        leftClone.rectTransform.DOMove(targetPosition, 0.3f);
-        rightClone.rectTransform.DOMove(targetPosition, 0.3f);
+        leftClone.rectTransform
+            .DOMove(targetPosition, 0.3f)
+            .SetEase(Ease.InOutQuad);
+
+        rightClone.rectTransform
+            .DOMove(targetPosition, 0.3f)
+            .SetEase(Ease.InOutQuad);
+
 
         Destroy(leftClone.gameObject, 0.35f);
         Destroy(centerClone.gameObject, 0.35f);
         Destroy(rightClone.gameObject, 0.35f);
+
     }
 
     private IEnumerator MatchRoutine(string objectID)
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
 
         PlayMatchAnimation(objectID);
 
@@ -336,11 +343,14 @@ public class TrayManager : MonoBehaviour
 
             traySlot.IsOccupied = false;
             traySlot.CurrentObject = null;
+
             traySlot.ObjectID = "";
 
             traySlot.IconImage.sprite = null;
             traySlot.IconImage.enabled = false;
         }
+
+        yield return new WaitForSeconds(0.2f);
 
         ShiftSlotsLeft();
     }

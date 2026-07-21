@@ -18,38 +18,30 @@ public class SpawnManager : MonoBehaviour
     {
         currentLevel = LevelManager.Instance.currentLevel;
 
-        Debug.Log("Aktif Level: " + currentLevel.name);
-
-        Debug.Log("Prefab Sayýsý:" + currentLevel.spawnPrefabs.Count);
-
-        foreach( GameObject prefab in currentLevel.spawnPrefabs )
+        foreach (GoalData goal in GoalManager.Instance.goals)
         {
-            Debug.Log(prefab.name);
+            Debug.Log(goal.objectID + " -> " + goal.requiredCount);
         }
 
-        Vector3 randomPosition = GetRandomSpawnPosition();
-
-        Debug.Log("Spawn Position: " + randomPosition);
+        Debug.Log("Aktif Level: " + currentLevel.name);
 
 
-        for (int i = 0; i < currentLevel.spawnCount; i++)
+        foreach (LevelObject levelObject in currentLevel.levelObjects)
         {
-            int randomIndex = Random.Range(0, currentLevel.spawnPrefabs.Count);
+            for (int i = 0; i < levelObject.count; i++)
+            {
+                Vector3 targetPosition = GetRandomSpawnPosition();
 
-            GameObject randomPrefab = currentLevel.spawnPrefabs[randomIndex];
+                Vector3 spawnPosition = targetPosition + Vector3.up * 0.75f;
 
-            Vector3 targetPosition = GetRandomSpawnPosition();
+                GameObject spawnedObject = Instantiate(levelObject.prefab, spawnPosition, Quaternion.identity);
 
-            Vector3 spawnPosition = targetPosition + Vector3.up * 0.75f;
-
-            GameObject spawnedObject = Instantiate(randomPrefab, spawnPosition, Quaternion.identity);
-
-            spawnedObject.transform
-               .DOMove(targetPosition, 0.25f)
-               .SetDelay(i * 0.03f)
-               .SetEase(Ease.OutQuad);
-        };
-    }
+                spawnedObject.transform
+                    .DOMove(targetPosition, 0.25f)
+                    .SetEase(Ease.OutQuad);
+            }
+        }
+    } 
 
     private Vector3 GetRandomSpawnPosition()
     {
