@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0536e9930052546a1f3251ce7d6c6a, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
+  levelNumber: 0
+  levelTime: 60
   levelObjects:
   - objectID: Apple
     prefab: {fileID: 3291013059309220600, guid: 7192642b1ed93d44f901ec1f1617dd77, type: 3}

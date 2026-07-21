@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
     }
 
     private void Start()
@@ -27,19 +28,20 @@ public class SpawnManager : MonoBehaviour
 
 
         foreach (LevelObject levelObject in currentLevel.levelObjects)
-        {
-            for (int i = 0; i < levelObject.count; i++)
-            {
-                Vector3 targetPosition = GetRandomSpawnPosition();
+         {
+             for (int i = 0; i < levelObject.count; i++)
+             {
+                 Vector3 targetPosition = GetRandomSpawnPosition();
 
-                Vector3 spawnPosition = targetPosition + Vector3.up * 0.75f;
+                 Vector3 spawnPosition = targetPosition + Vector3.up * 0.75f;
 
-                GameObject spawnedObject = Instantiate(levelObject.prefab, spawnPosition, Quaternion.identity);
+                 GameObject spawnedObject = Instantiate(levelObject.prefab, spawnPosition, Quaternion.identity);
 
-                spawnedObject.transform
-                    .DOMove(targetPosition, 0.25f)
-                    .SetEase(Ease.OutQuad);
+                 spawnedObject.transform
+                   .DOMove(targetPosition, 0.25f)
+                   .SetEase(Ease.OutQuad); 
             }
+
         }
     } 
 
@@ -56,5 +58,9 @@ public class SpawnManager : MonoBehaviour
         float randomZ = Random.Range(center.z - height / 2f, center.z + height / 2f);
 
         return new Vector3(randomX, center.y, randomZ);
+
     }
+
+   
+
 }

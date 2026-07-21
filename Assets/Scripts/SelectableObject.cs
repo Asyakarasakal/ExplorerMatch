@@ -38,7 +38,7 @@ public class SelectableObject : MonoBehaviour
 
         if (targetSlot == null)
         {
-            Debug.Log("GAME OVER! Tray is full.");
+            LoseManager.Instance.LoseGame();
             return;
         }
 
@@ -102,7 +102,7 @@ public class SelectableObject : MonoBehaviour
         );
 
 
-        GoalManager.Instance.CollectGoal(objectID);
+          GoalManager.Instance.CollectGoal(objectID);
 
         pickupSequence.OnComplete(() =>
         {

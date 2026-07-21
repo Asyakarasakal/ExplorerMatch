@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GoalManager : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class GoalManager : MonoBehaviour
     [Header("UI")]
     public Transform goalPanel;
     public GameObject goalItemPrefab;
+
+    public GameObject winPanel;
 
     private List<GoalItemUI> goalItems = new List<GoalItemUI>();
 
@@ -60,11 +64,25 @@ public class GoalManager : MonoBehaviour
                 }
 
                 Debug.Log(goal.objectID + " : " + goal.currentCount);
+                /*
 
                 if (AreAllGoalsCompleted())
                 {
                     Debug.Log("LEVEL COMPLETE!");
+
+                    if (winPanel != null)
+                    {
+                        winPanel.SetActive(true);
+                    }
+
+                    Time.timeScale = 0f;
+                } */
+
+                if (AreAllGoalsCompleted())
+                {
+                    StartCoroutine(ShowWinPanel());
                 }
+
                 break;
             }
         }
@@ -81,5 +99,38 @@ public class GoalManager : MonoBehaviour
         }
 
         return true;
+    }
+
+
+    private IEnumerator ShowWinPanel()
+    {
+        Debug.Log("LEVEL COMPLETE!");
+
+        yield return new WaitForSeconds(1.5f);
+
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+        }
+
+        Time.timeScale = 0f;
+    }
+
+
+    public void NextLevel()
+    {
+        Time.timeScale = 1f;
+
+        LevelManager.Instance.currentLevelIndex++;
+
+        if (LevelManager.Instance.currentLevelIndex >= LevelManager.Instance.levels.Count)
+        {
+            LevelManager.Instance.currentLevelIndex = 0;
+        }
+
+        LevelManager.Instance.currentLevel =
+            LevelManager.Instance.levels[LevelManager.Instance.currentLevelIndex];
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

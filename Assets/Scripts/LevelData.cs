@@ -25,6 +25,10 @@ public class LevelObject
 
 public class LevelData : ScriptableObject
 {
+    [Header("Level Settings")]
+    public int levelNumber;
+    public float levelTime = 60f;
+
     [Header("Level Objects")]
     public List<LevelObject> levelObjects = new List<LevelObject>();
 }
