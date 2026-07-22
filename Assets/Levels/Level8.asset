@@ -15,18 +15,56 @@ MonoBehaviour:
   levelNumber: 0
   levelTime: 60
   levelObjects:
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Boat
+    prefab: {fileID: 7054279310725254661, guid: 44afc35e6b613ba489e0d28a8d1293f9, type: 3}
+    icon: {fileID: 21300000, guid: be15ed8d89471de4197b4bbe24ef8572, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: Paddle
+    prefab: {fileID: 8816367944206555019, guid: 2ca83b2aa2389c64fbf53100547bb288, type: 3}
+    icon: {fileID: 21300000, guid: dbfc75bcab1384c498e599066fb5c7a2, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: Rope
+    prefab: {fileID: 7148280533411477312, guid: 94226337d553f9d418d79bbd3eafe5e0, type: 3}
+    icon: {fileID: 21300000, guid: bb2e0945baac2e74a8c76f6eb2f95b5f, type: 3}
+    count: 12
+    isGoalObject: 1
+  - objectID: Barrel
+    prefab: {fileID: 9221402383757733268, guid: 848c8e50303cbae44a8a43b28f997ebc, type: 3}
+    icon: {fileID: 21300000, guid: 693bc51e6f035b249abb5da446f2d425, type: 3}
+    count: 6
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Diamond
+    prefab: {fileID: 6628564469655089210, guid: 436319aa78c0ff64385aa12dad996746, type: 3}
+    icon: {fileID: 21300000, guid: f246c9b0a61461d479e353904165b4e0, type: 3}
+    count: 6
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Grape
+    prefab: {fileID: 3564780821487855224, guid: da29be87c7e9612418905f0eef811435, type: 3}
+    icon: {fileID: 21300000, guid: 5c544e5bf807c3a4a839e65f0b2205a5, type: 3}
+    count: 12
     isGoalObject: 0
+  - objectID: Lighter
+    prefab: {fileID: 3658571767614780059, guid: 0daec3c35e6dfc441b1ce1ff8b6528c6, type: 3}
+    icon: {fileID: 21300000, guid: 4be97eb433c4bd842910b7444ef225c4, type: 3}
+    count: 6
+    isGoalObject: 0
+  - objectID: Matches
+    prefab: {fileID: 3654349523853547678, guid: 29f6ff51e9fb61d46834a0403af1b801, type: 3}
+    icon: {fileID: 21300000, guid: e973af4444ddfd947afbd6fe46885056, type: 3}
+    count: 6
+    isGoalObject: 0
+  goals:
+  - objectID: Boat
+    icon: {fileID: 21300000, guid: be15ed8d89471de4197b4bbe24ef8572, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: Paddle
+    icon: {fileID: 21300000, guid: dbfc75bcab1384c498e599066fb5c7a2, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: Rope
+    icon: {fileID: 21300000, guid: bb2e0945baac2e74a8c76f6eb2f95b5f, type: 3}
+    requiredCount: 12
+    currentCount: 0

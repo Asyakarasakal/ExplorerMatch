@@ -15,18 +15,51 @@ MonoBehaviour:
   levelNumber: 0
   levelTime: 60
   levelObjects:
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Campfire
+    prefab: {fileID: 79322480514146347, guid: 6d54d4d8e55b8b849b3c831226c5f5a4, type: 3}
+    icon: {fileID: 21300000, guid: a0ed410863f287f44bce86cf0e8a5c0b, type: 3}
+    count: 6
+    isGoalObject: 1
+  - objectID: Lighter
+    prefab: {fileID: 3658571767614780059, guid: 0daec3c35e6dfc441b1ce1ff8b6528c6, type: 3}
+    icon: {fileID: 21300000, guid: 4be97eb433c4bd842910b7444ef225c4, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: Matches
+    prefab: {fileID: 3654349523853547678, guid: 29f6ff51e9fb61d46834a0403af1b801, type: 3}
+    icon: {fileID: 21300000, guid: e973af4444ddfd947afbd6fe46885056, type: 3}
+    count: 6
+    isGoalObject: 1
+  - objectID: ToyTrain
+    prefab: {fileID: 9013848257419882611, guid: fa9a4a5366f96e545b27789353dffd80, type: 3}
+    icon: {fileID: 21300000, guid: 8cbc25c70bd004f4d9674e0c09639720, type: 3}
+    count: 6
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Pan
+    prefab: {fileID: 4977482104267488215, guid: 4936b1e00358ea8458972ce20b6bcae6, type: 3}
+    icon: {fileID: 21300000, guid: 07d1f0400b16f844ebeeb4eb7b909e52, type: 3}
+    count: 9
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: WateringCan
+    prefab: {fileID: 8729160299309884927, guid: ec7b9e76139e6724d834a9a9e8d4cc02, type: 3}
+    icon: {fileID: 21300000, guid: 464f900e8bd03f44aab7d65a0a964985, type: 3}
+    count: 9
     isGoalObject: 0
+  - objectID: Toy
+    prefab: {fileID: 5898315002944009093, guid: ccadbb862ba2d674fa7fd5daf7a7aadb, type: 3}
+    icon: {fileID: 21300000, guid: d079516790a1f4041964e7059539e4b9, type: 3}
+    count: 6
+    isGoalObject: 0
+  goals:
+  - objectID: Campfire
+    icon: {fileID: 21300000, guid: a0ed410863f287f44bce86cf0e8a5c0b, type: 3}
+    requiredCount: 6
+    currentCount: 0
+  - objectID: Lighter
+    icon: {fileID: 21300000, guid: 4be97eb433c4bd842910b7444ef225c4, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: Matches
+    icon: {fileID: 21300000, guid: e973af4444ddfd947afbd6fe46885056, type: 3}
+    requiredCount: 6
+    currentCount: 0

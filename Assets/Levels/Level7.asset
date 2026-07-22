@@ -15,18 +15,36 @@ MonoBehaviour:
   levelNumber: 0
   levelTime: 60
   levelObjects:
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Pickaxe
+    prefab: {fileID: 3659318743242088238, guid: 2bd1e2ee5b4d07a4d8524326fa3310c2, type: 3}
+    icon: {fileID: 21300000, guid: c2ab5be711b8f97428ec003d371acc3b, type: 3}
+    count: 6
+    isGoalObject: 1
+  - objectID: HeadFlashlight
+    prefab: {fileID: 8640459015473283888, guid: c243e040b00c3534ca13fff0c585c860, type: 3}
+    icon: {fileID: 21300000, guid: 3d26f3a802e3c1e40a01c94a0916b468, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: Flashlight
+    prefab: {fileID: 2613467336324292304, guid: 6e9d3435c1f44e4489800f3d32685996, type: 3}
+    icon: {fileID: 21300000, guid: aa921568e36bdbf46b95639748dfd5fe, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: Rock
+    prefab: {fileID: 8424410067799399637, guid: b2989fc7f3241f44e8fffa78a1cd47c9, type: 3}
+    icon: {fileID: 21300000, guid: 5fbf56b7879fe0b4189695502be41284, type: 3}
+    count: 36
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
-    isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
-    isGoalObject: 0
+  goals:
+  - objectID: Pickaxe
+    icon: {fileID: 21300000, guid: c2ab5be711b8f97428ec003d371acc3b, type: 3}
+    requiredCount: 6
+    currentCount: 0
+  - objectID: HeadFlashlight
+    icon: {fileID: 21300000, guid: 3d26f3a802e3c1e40a01c94a0916b468, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: Flashlight
+    icon: {fileID: 21300000, guid: aa921568e36bdbf46b95639748dfd5fe, type: 3}
+    requiredCount: 9
+    currentCount: 0

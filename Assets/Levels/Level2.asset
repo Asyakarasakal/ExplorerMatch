@@ -15,11 +15,6 @@ MonoBehaviour:
   levelNumber: 0
   levelTime: 60
   levelObjects:
-  - objectID: MedKit
-    prefab: {fileID: 6298360856417895900, guid: 4b2e28077360012489f9fd5ea5b7e520, type: 3}
-    icon: {fileID: 21300000, guid: 02b179ba0a86f9a429eac3f8ad7933a8, type: 3}
-    count: 3
-    isGoalObject: 1
   - objectID: Tape
     prefab: {fileID: 3878010115628879702, guid: be5ce08e162d3594abb1df74b48cbf65, type: 3}
     icon: {fileID: 21300000, guid: 88ded4cf7ef87ba418a555f17b7dcea4, type: 3}
@@ -28,26 +23,42 @@ MonoBehaviour:
   - objectID: Medicine
     prefab: {fileID: 2416941034605606805, guid: f3e01deed98a7094b95fbc8201cc22c0, type: 3}
     icon: {fileID: 21300000, guid: 604a2fb17680ebb46b52745967f2f80d, type: 3}
-    count: 6
+    count: 3
     isGoalObject: 1
   - objectID: MedicinePills
     prefab: {fileID: 8959392614473503749, guid: 0ad0a025afecb2c47995d96ae81548f9, type: 3}
     icon: {fileID: 21300000, guid: 687175fcd58134642a9600bf19b360ce, type: 3}
     count: 3
     isGoalObject: 1
+  - objectID: MedKit
+    prefab: {fileID: 6298360856417895900, guid: 4b2e28077360012489f9fd5ea5b7e520, type: 3}
+    icon: {fileID: 21300000, guid: 02b179ba0a86f9a429eac3f8ad7933a8, type: 3}
+    count: 3
+    isGoalObject: 1
   - objectID: Rock
     prefab: {fileID: 8424410067799399637, guid: b2989fc7f3241f44e8fffa78a1cd47c9, type: 3}
     icon: {fileID: 21300000, guid: 5fbf56b7879fe0b4189695502be41284, type: 3}
-    count: 10
+    count: 9
+    isGoalObject: 0
+  - objectID: Ball_02
+    prefab: {fileID: 2057204850015124117, guid: 92e40eab99ba73643899680e6d093f0a, type: 3}
+    icon: {fileID: 21300000, guid: 501b9cd5185699f40915f69e9bf0ee1c, type: 3}
+    count: 6
+    isGoalObject: 0
+  - objectID: Ball_03
+    prefab: {fileID: 8025978824220057860, guid: 771ec9c1a6354284aa1dbd1e55de8144, type: 3}
+    icon: {fileID: 21300000, guid: c04a5457f54ad6245901938aebede170, type: 3}
+    count: 6
+    isGoalObject: 0
+  - objectID: Apple
+    prefab: {fileID: 3291013059309220600, guid: 7192642b1ed93d44f901ec1f1617dd77, type: 3}
+    icon: {fileID: 21300000, guid: 4bc14dbe8a5592d46a653e7052460a96, type: 3}
+    count: 9
     isGoalObject: 0
   goals:
-  - objectID: MedKit
-    icon: {fileID: 21300000, guid: 02b179ba0a86f9a429eac3f8ad7933a8, type: 3}
-    requiredCount: 3
-    currentCount: 0
   - objectID: Medicine
     icon: {fileID: 21300000, guid: 604a2fb17680ebb46b52745967f2f80d, type: 3}
-    requiredCount: 6
+    requiredCount: 3
     currentCount: 0
   - objectID: MedicinePills
     icon: {fileID: 21300000, guid: 687175fcd58134642a9600bf19b360ce, type: 3}
@@ -55,5 +66,9 @@ MonoBehaviour:
     currentCount: 0
   - objectID: Tape
     icon: {fileID: 21300000, guid: 88ded4cf7ef87ba418a555f17b7dcea4, type: 3}
+    requiredCount: 3
+    currentCount: 0
+  - objectID: MedKit
+    icon: {fileID: 21300000, guid: 02b179ba0a86f9a429eac3f8ad7933a8, type: 3}
     requiredCount: 3
     currentCount: 0

@@ -15,18 +15,56 @@ MonoBehaviour:
   levelNumber: 0
   levelTime: 60
   levelObjects:
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Bed
+    prefab: {fileID: 4594802686170435702, guid: 83b67005ac4af4d4a94e8315e53cc6eb, type: 3}
+    icon: {fileID: 21300000, guid: 7ec12288e07827844a073fb2c7aa19c2, type: 3}
+    count: 6
+    isGoalObject: 1
+  - objectID: Binoculars
+    prefab: {fileID: 5040776893554494919, guid: c2f4d970ed394524e9ba05e382c0d123, type: 3}
+    icon: {fileID: 21300000, guid: 595e16e6b729d904d8e7df88904031e4, type: 3}
+    count: 6
+    isGoalObject: 1
+  - objectID: FoldedTent
+    prefab: {fileID: 7763432741639978240, guid: be1be482afb15de4ab42d5eababccabe, type: 3}
+    icon: {fileID: 21300000, guid: d2b637851cba0b348ade01939c31c521, type: 3}
+    count: 6
+    isGoalObject: 1
+  - objectID: Ball_02
+    prefab: {fileID: 2057204850015124117, guid: 92e40eab99ba73643899680e6d093f0a, type: 3}
+    icon: {fileID: 21300000, guid: 501b9cd5185699f40915f69e9bf0ee1c, type: 3}
+    count: 6
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Ball_03
+    prefab: {fileID: 8025978824220057860, guid: 771ec9c1a6354284aa1dbd1e55de8144, type: 3}
+    icon: {fileID: 21300000, guid: c04a5457f54ad6245901938aebede170, type: 3}
+    count: 6
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Backpack
+    prefab: {fileID: 9199523957901858923, guid: 312731c6669111b479e622a47bc258fb, type: 3}
+    icon: {fileID: 21300000, guid: 47713cf08c288b64fb2a7c70b7f68756, type: 3}
+    count: 6
     isGoalObject: 0
+  - objectID: Waterbottle
+    prefab: {fileID: 7961679361901238741, guid: c41aa463949dfa24299fe62b477768d9, type: 3}
+    icon: {fileID: 21300000, guid: 287fe414c676dd44c8931a60606231b7, type: 3}
+    count: 9
+    isGoalObject: 0
+  - objectID: Flashlight
+    prefab: {fileID: 2613467336324292304, guid: 6e9d3435c1f44e4489800f3d32685996, type: 3}
+    icon: {fileID: 21300000, guid: aa921568e36bdbf46b95639748dfd5fe, type: 3}
+    count: 9
+    isGoalObject: 0
+  goals:
+  - objectID: Bed
+    icon: {fileID: 21300000, guid: 7ec12288e07827844a073fb2c7aa19c2, type: 3}
+    requiredCount: 6
+    currentCount: 6
+  - objectID: Binoculars
+    icon: {fileID: 21300000, guid: 595e16e6b729d904d8e7df88904031e4, type: 3}
+    requiredCount: 6
+    currentCount: 6
+  - objectID: FoldedTent
+    icon: {fileID: 21300000, guid: d2b637851cba0b348ade01939c31c521, type: 3}
+    requiredCount: 6
+    currentCount: 6

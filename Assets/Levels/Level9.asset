@@ -15,18 +15,56 @@ MonoBehaviour:
   levelNumber: 0
   levelTime: 60
   levelObjects:
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Axe
+    prefab: {fileID: 1217930391283017016, guid: 1587ec2af9fc73a4e84e30e9f6b0a06e, type: 3}
+    icon: {fileID: 21300000, guid: 1938221c8fe2eac4fa4687a0ec19f73d, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: ClimbingAxe
+    prefab: {fileID: 7853975409581810988, guid: 94baa7e4c66675c4bbe8a18f216dee07, type: 3}
+    icon: {fileID: 21300000, guid: f009931c9ca57d3458d8a474a0781495, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: Saw
+    prefab: {fileID: 1239172675495694379, guid: 1c825c0c9d787db4a803851372916ff8, type: 3}
+    icon: {fileID: 21300000, guid: 7ad99f9ce9832b943a96ea9e3984140a, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: MapFolded
+    prefab: {fileID: 9082374955534991723, guid: dde723e09ca3eb64ca47b164663aa3ee, type: 3}
+    icon: {fileID: 21300000, guid: eb93f4dbea5502945a6d7889502abd4c, type: 3}
+    count: 12
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Diamond
+    prefab: {fileID: 6628564469655089210, guid: 436319aa78c0ff64385aa12dad996746, type: 3}
+    icon: {fileID: 21300000, guid: f246c9b0a61461d479e353904165b4e0, type: 3}
+    count: 12
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: ToyTrain
+    prefab: {fileID: 9013848257419882611, guid: fa9a4a5366f96e545b27789353dffd80, type: 3}
+    icon: {fileID: 21300000, guid: 8cbc25c70bd004f4d9674e0c09639720, type: 3}
+    count: 12
     isGoalObject: 0
+  - objectID: Coral
+    prefab: {fileID: 2445609669403271936, guid: 022c19324ecc5ae4087abf7115540fd5, type: 3}
+    icon: {fileID: 21300000, guid: 6f5855542be41344eb69b3cb58f1d63f, type: 3}
+    count: 6
+    isGoalObject: 1
+  - objectID: Apple
+    prefab: {fileID: 3291013059309220600, guid: 7192642b1ed93d44f901ec1f1617dd77, type: 3}
+    icon: {fileID: 21300000, guid: 4bc14dbe8a5592d46a653e7052460a96, type: 3}
+    count: 6
+    isGoalObject: 0
+  goals:
+  - objectID: Axe
+    icon: {fileID: 21300000, guid: 1938221c8fe2eac4fa4687a0ec19f73d, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: ClimbingAxe
+    icon: {fileID: 21300000, guid: f009931c9ca57d3458d8a474a0781495, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: Saw
+    icon: {fileID: 21300000, guid: 7ad99f9ce9832b943a96ea9e3984140a, type: 3}
+    requiredCount: 9
+    currentCount: 0

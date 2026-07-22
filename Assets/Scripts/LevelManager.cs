@@ -17,8 +17,8 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.DeleteKey("CurrentLevel");
-        PlayerPrefs.Save();
+        //PlayerPrefs.DeleteKey("CurrentLevel"); //daha sonra sil yoksa save sistemi çalýþmaz
+       // PlayerPrefs.Save();  // daha sonra sil yoksa save sistemi çalýþmaz
 
         if (Instance != null && Instance != this)
         {

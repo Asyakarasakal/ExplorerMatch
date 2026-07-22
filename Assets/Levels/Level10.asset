@@ -15,23 +15,80 @@ MonoBehaviour:
   levelNumber: 0
   levelTime: 60
   levelObjects:
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Diamond_2
+    prefab: {fileID: 2984196368288889444, guid: 3740de978b6db28429eb0bca6927df5c, type: 3}
+    icon: {fileID: 21300000, guid: d93876e14df0c354891ec0179e521ef4, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: MapFolded
+    prefab: {fileID: 9082374955534991723, guid: dde723e09ca3eb64ca47b164663aa3ee, type: 3}
+    icon: {fileID: 21300000, guid: eb93f4dbea5502945a6d7889502abd4c, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: Key
+    prefab: {fileID: 7057816150953678702, guid: 77037963cd3b3194da717287d4b26e96, type: 3}
+    icon: {fileID: 21300000, guid: 3c7d7e77ab2871f408291bd232216c76, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: Diamond
+    prefab: {fileID: 6628564469655089210, guid: 436319aa78c0ff64385aa12dad996746, type: 3}
+    icon: {fileID: 21300000, guid: f246c9b0a61461d479e353904165b4e0, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: Campfire
+    prefab: {fileID: 79322480514146347, guid: 6d54d4d8e55b8b849b3c831226c5f5a4, type: 3}
+    icon: {fileID: 21300000, guid: a0ed410863f287f44bce86cf0e8a5c0b, type: 3}
+    count: 3
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Rock
+    prefab: {fileID: 8424410067799399637, guid: b2989fc7f3241f44e8fffa78a1cd47c9, type: 3}
+    icon: {fileID: 21300000, guid: 5fbf56b7879fe0b4189695502be41284, type: 3}
+    count: 12
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Coral_2
+    prefab: {fileID: 4068565165226173403, guid: 4314b2bf6c572584dbd2e175989ad737, type: 3}
+    icon: {fileID: 21300000, guid: 80a9c2f0da711354b821a600a5d0d06f, type: 3}
+    count: 9
     isGoalObject: 0
-  - objectID: 
-    prefab: {fileID: 0}
-    icon: {fileID: 0}
-    count: 0
+  - objectID: Coral_3
+    prefab: {fileID: 5019901764819861743, guid: 04bc8259dca9535438b5b13024221ea9, type: 3}
+    icon: {fileID: 21300000, guid: ac2066ade887ff64da6008fca50710ad, type: 3}
+    count: 9
     isGoalObject: 0
+  - objectID: Plate
+    prefab: {fileID: 659074591997736932, guid: b614ef4d42fb5e742b085d8d74ec4a5b, type: 3}
+    icon: {fileID: 21300000, guid: eba44ccb9acd49e4db8eb340409d79d9, type: 3}
+    count: 9
+    isGoalObject: 0
+  - objectID: Cup
+    prefab: {fileID: 4938688419449020665, guid: 398ef506922bf4f43a660418659e7886, type: 3}
+    icon: {fileID: 21300000, guid: abd24bb605c62b54daf294b142fae5bb, type: 3}
+    count: 12
+    isGoalObject: 0
+  - objectID: Wood
+    prefab: {fileID: 3839336873806916196, guid: dd4ab1af3b9bb774b979ec8e7e8d7497, type: 3}
+    icon: {fileID: 21300000, guid: caee3ddea65f5594f9b977174f2b75b8, type: 3}
+    count: 9
+    isGoalObject: 0
+  - objectID: Coral
+    prefab: {fileID: 2445609669403271936, guid: 022c19324ecc5ae4087abf7115540fd5, type: 3}
+    icon: {fileID: 21300000, guid: 6f5855542be41344eb69b3cb58f1d63f, type: 3}
+    count: 12
+    isGoalObject: 0
+  goals:
+  - objectID: Diamond_2
+    icon: {fileID: 21300000, guid: d93876e14df0c354891ec0179e521ef4, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: MapFolded
+    icon: {fileID: 21300000, guid: eb93f4dbea5502945a6d7889502abd4c, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: Key
+    icon: {fileID: 21300000, guid: 3c7d7e77ab2871f408291bd232216c76, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: Diamond
+    icon: {fileID: 21300000, guid: f246c9b0a61461d479e353904165b4e0, type: 3}
+    requiredCount: 9
+    currentCount: 0
