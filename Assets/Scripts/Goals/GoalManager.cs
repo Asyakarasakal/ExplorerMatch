@@ -25,6 +25,17 @@ public class GoalManager : MonoBehaviour
 
     private void Start()
     {
+        goals = LevelManager.Instance.currentLevel.goals;
+
+        foreach (GoalData goal in goals)
+        {
+            Debug.Log(goal.objectID + " Before: " + goal.currentCount);
+
+            goal.currentCount = goal.requiredCount;
+
+            Debug.Log(goal.objectID + " After: " + goal.currentCount);
+        }
+
         CreateGoalUI();
     }
 
@@ -130,6 +141,16 @@ public class GoalManager : MonoBehaviour
 
         LevelManager.Instance.currentLevel =
             LevelManager.Instance.levels[LevelManager.Instance.currentLevelIndex];
+
+        Debug.Log("Next Level => " + LevelManager.Instance.currentLevel.name);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); LevelManager.Instance.currentLevel =
+           LevelManager.Instance.levels[LevelManager.Instance.currentLevelIndex];
+
+        PlayerPrefs.SetInt("CurrentLevel", LevelManager.Instance.currentLevelIndex);
+        PlayerPrefs.Save();
+
+        Debug.Log("Next Level => " + LevelManager.Instance.currentLevel.name);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

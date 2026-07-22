@@ -31,4 +31,7 @@ public class LevelData : ScriptableObject
 
     [Header("Level Objects")]
     public List<LevelObject> levelObjects = new List<LevelObject>();
+
+    [Header("Goals")]
+    public List<GoalData> goals = new List<GoalData>();
 }

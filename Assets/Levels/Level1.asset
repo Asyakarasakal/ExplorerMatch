@@ -45,3 +45,16 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 7ec12288e07827844a073fb2c7aa19c2, type: 3}
     count: 3
     isGoalObject: 1
+  goals:
+  - objectID: Bed
+    icon: {fileID: 21300000, guid: 7ec12288e07827844a073fb2c7aa19c2, type: 3}
+    requiredCount: 3
+    currentCount: 3
+  - objectID: Backpack
+    icon: {fileID: 21300000, guid: 47713cf08c288b64fb2a7c70b7f68756, type: 3}
+    requiredCount: 6
+    currentCount: 6
+  - objectID: Apple
+    icon: {fileID: 21300000, guid: 4bc14dbe8a5592d46a653e7052460a96, type: 3}
+    requiredCount: 3
+    currentCount: 3

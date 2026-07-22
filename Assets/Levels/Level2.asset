@@ -35,3 +35,25 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 687175fcd58134642a9600bf19b360ce, type: 3}
     count: 3
     isGoalObject: 1
+  - objectID: Rock
+    prefab: {fileID: 8424410067799399637, guid: b2989fc7f3241f44e8fffa78a1cd47c9, type: 3}
+    icon: {fileID: 21300000, guid: 5fbf56b7879fe0b4189695502be41284, type: 3}
+    count: 10
+    isGoalObject: 0
+  goals:
+  - objectID: MedKit
+    icon: {fileID: 21300000, guid: 02b179ba0a86f9a429eac3f8ad7933a8, type: 3}
+    requiredCount: 3
+    currentCount: 0
+  - objectID: Medicine
+    icon: {fileID: 21300000, guid: 604a2fb17680ebb46b52745967f2f80d, type: 3}
+    requiredCount: 6
+    currentCount: 0
+  - objectID: MedicinePills
+    icon: {fileID: 21300000, guid: 687175fcd58134642a9600bf19b360ce, type: 3}
+    requiredCount: 3
+    currentCount: 0
+  - objectID: Tape
+    icon: {fileID: 21300000, guid: 88ded4cf7ef87ba418a555f17b7dcea4, type: 3}
+    requiredCount: 3
+    currentCount: 0
