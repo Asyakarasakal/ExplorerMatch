@@ -44,6 +44,12 @@ public class LoseManager : MonoBehaviour
 
     public void Retry()
     {
+        // Yenilgi panelinden Retry yapýldýðýnda 1 can düþür
+        if (PauseManager.Instance != null)
+        {
+            PauseManager.Instance.ConsumeLife();
+        }
+
         Time.timeScale = 1f;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
