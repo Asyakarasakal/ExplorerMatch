@@ -48,4 +48,34 @@ public class LoseManager : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    // --- YENÝ EKLENEN METOTLAR ---
+
+    /// <summary>
+    /// LosePanel üzerindeki 'X' butonuna týklanýnca çaðrýlacak metot.
+    /// </summary>
+    public void OpenQuitConfirmFromLose()
+    {
+        if (losePanel != null)
+        {
+            losePanel.SetActive(false); // LosePanel'i geçici olarak gizle
+        }
+
+        if (PauseManager.Instance != null)
+        {
+            // QuitConfirmPanel'e bizi LosePanel'in çaðýrdýðýný haber veriyoruz
+            PauseManager.Instance.OpenQuitConfirmPanel("LosePanel");
+        }
+    }
+
+    /// <summary>
+    /// QuitConfirmPanel'deki 'X' (Geri) butonuna basýlýnca LosePanel'i tekrar açan metot.
+    /// </summary>
+    public void ReopenLosePanel()
+    {
+        if (losePanel != null)
+        {
+            losePanel.SetActive(true);
+        }
+    }
 }

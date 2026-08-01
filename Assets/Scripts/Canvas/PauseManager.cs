@@ -29,6 +29,9 @@ public class PauseManager : MonoBehaviour
     private bool isSFXOn;
     private bool isVibrationOn;
 
+    // YENÝ: Onay panelini açan önceki paneli hafýzada tutar ("PausePanel" veya "LosePanel")
+    private string previousPanelName = "";
+
     private void Awake()
     {
         Instance = this;
@@ -54,7 +57,6 @@ public class PauseManager : MonoBehaviour
 
     public void UpdateLivesUI()
     {
-        // UI nesnesi sahnede yoksa veya atnmadýysa NullReference vermeden es geçer
         if (livesText != null)
         {
             int currentLives = PlayerPrefs.GetInt("CurrentLives", 5);
@@ -62,7 +64,7 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    private void ConsumeLife()
+    public void ConsumeLife()
     {
         int currentLives = PlayerPrefs.GetInt("CurrentLives", 5);
         if (currentLives > 0)
@@ -104,8 +106,13 @@ public class PauseManager : MonoBehaviour
         EnablePauseButton();
     }
 
-    public void OpenQuitConfirmPanel()
+    // --- AKILLI QUIT CONFIRM PANEL METOTLARI ---
+
+    // 1. Parametre alan metot (Hangi panelden gelindiðini kaydeder)
+    public void OpenQuitConfirmPanel(string comingFrom)
     {
+        previousPanelName = comingFrom;
+
         if (pausePanel != null) pausePanel.SetActive(false);
         if (quitConfirmPanel != null) quitConfirmPanel.SetActive(true);
 
@@ -113,10 +120,32 @@ public class PauseManager : MonoBehaviour
         DisablePauseButton();
     }
 
+    // 2. Parametresiz kullaným (PausePanel'deki 'X' veya 'Çýkýþ' butonundan týklandýðýnda varsayýlan PausePanel kabul eder)
+    public void OpenQuitConfirmPanel()
+    {
+        OpenQuitConfirmPanel("PausePanel");
+    }
+
+    // 3. QuitConfirmPanel üzerindeki 'X' (Geri) butonuna basýldýðýnda çaðrýlýr
     public void BackToPausePanel()
     {
         if (quitConfirmPanel != null) quitConfirmPanel.SetActive(false);
-        if (pausePanel != null) pausePanel.SetActive(true);
+
+        // Nereden geldiysek oraya geri dön!
+        if (previousPanelName == "LosePanel")
+        {
+            if (LoseManager.Instance != null)
+            {
+                LoseManager.Instance.ReopenLosePanel();
+            }
+        }
+        else // Varsayýlan olarak PausePanel'e dön
+        {
+            if (pausePanel != null)
+            {
+                pausePanel.SetActive(true);
+            }
+        }
 
         Time.timeScale = 0f;
         DisablePauseButton();
