@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0536e9930052546a1f3251ce7d6c6a, type: 3}
+  m_Name: Level6
+  m_EditorClassIdentifier: 
+  levelNumber: 0
+  levelTime: 60
+  goalCardSprite: {fileID: 21300000, guid: 5f6049e38e03f0740a4a698eef494ef8, type: 3}
+  levelOutroSprite: {fileID: 21300000, guid: c4c0049ff09fc994db3ad3681194870b, type: 3}
+  levelObjects:
+  - objectID: Apple
+    prefab: {fileID: 3291013059309220600, guid: 7192642b1ed93d44f901ec1f1617dd77, type: 3}
+    icon: {fileID: 21300000, guid: 4bc14dbe8a5592d46a653e7052460a96, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: Meatballs
+    prefab: {fileID: 5038262045457450309, guid: 376bc3ddd14c3b746b02b2bb8486eea5, type: 3}
+    icon: {fileID: 21300000, guid: 53fd549eee684db4887a0b856c1df712, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: WaterBottle
+    prefab: {fileID: 7961679361901238741, guid: c41aa463949dfa24299fe62b477768d9, type: 3}
+    icon: {fileID: 21300000, guid: 287fe414c676dd44c8931a60606231b7, type: 3}
+    count: 9
+    isGoalObject: 1
+  - objectID: TeddyBear
+    prefab: {fileID: 4681811504025628586, guid: 1f693b30f6806184aa8a9b5b33f2987e, type: 3}
+    icon: {fileID: 21300000, guid: 2df5c7767eae41b40ada1d5cd6417ba3, type: 3}
+    count: 9
+    isGoalObject: 0
+  - objectID: ToyBear
+    prefab: {fileID: 1345468660944806584, guid: d3f23643946be2d46b804170fa3de5e8, type: 3}
+    icon: {fileID: 21300000, guid: c7f62908f9fd97d4bb4a490c21bb5daf, type: 3}
+    count: 9
+    isGoalObject: 0
+  - objectID: Toy
+    prefab: {fileID: 5898315002944009093, guid: ccadbb862ba2d674fa7fd5daf7a7aadb, type: 3}
+    icon: {fileID: 21300000, guid: d079516790a1f4041964e7059539e4b9, type: 3}
+    count: 9
+    isGoalObject: 0
+  - objectID: Coral
+    prefab: {fileID: 2445609669403271936, guid: 022c19324ecc5ae4087abf7115540fd5, type: 3}
+    icon: {fileID: 21300000, guid: 6f5855542be41344eb69b3cb58f1d63f, type: 3}
+    count: 12
+    isGoalObject: 0
+  goals:
+  - objectID: Apple
+    icon: {fileID: 21300000, guid: 4bc14dbe8a5592d46a653e7052460a96, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: Meatballs
+    icon: {fileID: 21300000, guid: 53fd549eee684db4887a0b856c1df712, type: 3}
+    requiredCount: 9
+    currentCount: 0
+  - objectID: WaterBottle
+    icon: {fileID: 21300000, guid: 287fe414c676dd44c8931a60606231b7, type: 3}
+    requiredCount: 9
+    currentCount: 0
