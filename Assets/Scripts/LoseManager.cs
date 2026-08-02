@@ -42,9 +42,10 @@ public class LoseManager : MonoBehaviour
         return IsGameOver;
     }
 
+
     public void Retry()
     {
-        // Yenilgi panelinden Retry yapýldýðýnda 1 can düþür
+        // 1. Can düþür
         if (PauseManager.Instance != null)
         {
             PauseManager.Instance.ConsumeLife();
@@ -52,7 +53,30 @@ public class LoseManager : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // 2. Caný PauseManager'dan doðrudan kontrol et
+        int remainingLives = 0;
+        if (PauseManager.Instance != null)
+        {
+            remainingLives = PauseManager.Instance.GetCurrentLives();
+        }
+        else
+        {
+            // Eðer Instance yoksa PlayerPrefs'ten yedek kontrol yap
+            remainingLives = PlayerPrefs.GetInt("PlayerLives", 0);
+        }
+
+        Debug.Log("Retry basýldý. Kalan can: " + remainingLives);
+
+        // 3. Karar aný: Can varsa baþtan baþlat, yoksa Ana Menüye at
+        if (remainingLives > 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            Debug.Log("Can bitti! Ana menüye gidiliyor...");
+            SceneManager.LoadScene("MainMenu"); // Ana menü sahne adýndan emin olalým
+        }
     }
 
     // --- YENÝ EKLENEN METOTLAR ---

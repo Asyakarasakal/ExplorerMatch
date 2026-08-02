@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 0
   levelTime: 60
-  goalCardSprite: {fileID: 21300000, guid: e738473a4682f084198d168fbcbcf1b7, type: 3}
+  goalCardSprite: {fileID: 21300000, guid: 6da9d96e34c47314998001a013d6e5e7, type: 3}
   levelOutroSprite: {fileID: 21300000, guid: b84fed4f593f669498edeafaac596b02, type: 3}
   levelObjects:
   - objectID: Map

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 0
   levelTime: 60
-  goalCardSprite: {fileID: 21300000, guid: 68189c4d8b1b0524a908b068d0f1a55a, type: 3}
+  goalCardSprite: {fileID: 21300000, guid: e439b7b28f4fc404896ae67025432075, type: 3}
   levelOutroSprite: {fileID: 21300000, guid: 70dc7fa0ab8375c4aba97db13c28ec62, type: 3}
   levelObjects:
   - objectID: Campfire

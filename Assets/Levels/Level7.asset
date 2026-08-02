@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 0
   levelTime: 60
-  goalCardSprite: {fileID: 21300000, guid: a004cf240eeb231438e16f56fe5e7122, type: 3}
+  goalCardSprite: {fileID: 21300000, guid: 9eda05d108bdfba4c967607610e68638, type: 3}
   levelOutroSprite: {fileID: 21300000, guid: 8629d7ead8a04a14bb9af1429462e3f7, type: 3}
   levelObjects:
   - objectID: Pickaxe
@@ -41,12 +41,12 @@ MonoBehaviour:
   - objectID: Pickaxe
     icon: {fileID: 21300000, guid: c2ab5be711b8f97428ec003d371acc3b, type: 3}
     requiredCount: 6
-    currentCount: 6
+    currentCount: 0
   - objectID: HeadFlashlight
     icon: {fileID: 21300000, guid: 3d26f3a802e3c1e40a01c94a0916b468, type: 3}
     requiredCount: 9
-    currentCount: 9
+    currentCount: 0
   - objectID: Flashlight
     icon: {fileID: 21300000, guid: c9d1071f9efcd9742b7d602626473bc4, type: 3}
     requiredCount: 9
-    currentCount: 9
+    currentCount: 0

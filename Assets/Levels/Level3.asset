@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 0
   levelTime: 60
-  goalCardSprite: {fileID: 21300000, guid: effc95b932f21ae4888b59c27955ca27, type: 3}
+  goalCardSprite: {fileID: 21300000, guid: 5916320d483221b47bfd22da1b4aa715, type: 3}
   levelOutroSprite: {fileID: 21300000, guid: 8a1bf1d3d6d84024ba20bdf6bad599b7, type: 3}
   levelObjects:
   - objectID: Hammer

@@ -77,6 +77,12 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    // YENÝ DÜZELTME: PlayerPrefs üzerindeki gerçek can sayýsýný döndürür
+    public int GetCurrentLives()
+    {
+        return PlayerPrefs.GetInt("CurrentLives", 5);
+    }
+
     public void DisablePauseButton()
     {
         if (pauseButton != null) pauseButton.interactable = false;

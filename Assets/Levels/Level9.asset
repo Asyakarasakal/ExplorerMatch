@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 0
   levelTime: 60
-  goalCardSprite: {fileID: 21300000, guid: addc2738a664f4643bce7a1ffcf60d31, type: 3}
+  goalCardSprite: {fileID: 21300000, guid: d9d0d0daa3f679f45bdb34f964b7d594, type: 3}
   levelOutroSprite: {fileID: 21300000, guid: 8ca95886e9c3da74b8316bb9f190705f, type: 3}
   levelObjects:
   - objectID: Axe
@@ -61,7 +61,7 @@ MonoBehaviour:
   - objectID: Axe
     icon: {fileID: 21300000, guid: 1938221c8fe2eac4fa4687a0ec19f73d, type: 3}
     requiredCount: 9
-    currentCount: 0
+    currentCount: 1
   - objectID: ClimbingAxe
     icon: {fileID: 21300000, guid: f009931c9ca57d3458d8a474a0781495, type: 3}
     requiredCount: 9

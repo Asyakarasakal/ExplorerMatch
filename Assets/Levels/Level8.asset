@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 0
   levelTime: 60
-  goalCardSprite: {fileID: 21300000, guid: f1ecd2461a94d2b46965a6285e8b304b, type: 3}
+  goalCardSprite: {fileID: 21300000, guid: 860fa1c24bd05d1409cdc5666d0341af, type: 3}
   levelOutroSprite: {fileID: 21300000, guid: 0928b51519f99c54288f733aaafef62f, type: 3}
   levelObjects:
   - objectID: Boat
@@ -61,12 +61,12 @@ MonoBehaviour:
   - objectID: Boat
     icon: {fileID: 21300000, guid: be15ed8d89471de4197b4bbe24ef8572, type: 3}
     requiredCount: 9
-    currentCount: 9
+    currentCount: 0
   - objectID: Paddle
     icon: {fileID: 21300000, guid: dbfc75bcab1384c498e599066fb5c7a2, type: 3}
     requiredCount: 9
-    currentCount: 9
+    currentCount: 0
   - objectID: Rope
     icon: {fileID: 21300000, guid: bb2e0945baac2e74a8c76f6eb2f95b5f, type: 3}
     requiredCount: 12
-    currentCount: 12
+    currentCount: 0
