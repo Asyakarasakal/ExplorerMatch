@@ -652,6 +652,7 @@ MonoBehaviour:
   goalPanel: {fileID: 1755501255}
   goalItemPrefab: {fileID: 133036101247912900, guid: 9527b421f62694343b4b1455f7f3bf60, type: 3}
   winPanel: {fileID: 513181580}
+  goalCompleteSound: {fileID: 8300000, guid: 460610c48b0852540b5a4572f05c9ef1, type: 3}
 --- !u!4 &154256773
 Transform:
   m_ObjectHideFlags: 0
@@ -6975,15 +6976,15 @@ RectTransform:
   m_GameObject: {fileID: 1672157041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.62, y: 7.96, z: 0.84799993}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5.16, y: 12.9, z: 0.93347824}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1752487715}
   m_Father: {fileID: 513181581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -791}
+  m_AnchoredPosition: {x: 0, y: -808}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1672157043
@@ -7062,7 +7063,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fe53240b6fe56f24cb41f2ed115a188e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08b0bd747f9baee4abc08e0c2848693e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7694,6 +7695,7 @@ MonoBehaviour:
   mainCamera: {fileID: 963194227}
   undoSpawnPoint: {fileID: 1247717930}
   undoPoofPrefab: {fileID: 1819025056712956630, guid: 4ef1584ca225a0e47968f8d9a285c693, type: 3}
+  matchSound: {fileID: 8300000, guid: 7799bbcf9f941154eb4c6aa081981c0a, type: 3}
 --- !u!4 &1793104258
 Transform:
   m_ObjectHideFlags: 0

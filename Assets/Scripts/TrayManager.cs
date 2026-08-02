@@ -19,6 +19,9 @@ public class TrayManager : MonoBehaviour
     public Transform undoSpawnPoint;
     public GameObject undoPoofPrefab;
 
+    [Header("Audio")]
+    public AudioClip matchSound; // Eþleþme (Match) ses dosyamýz
+
     private List<Transform> slots = new List<Transform>();
 
     private int currentMatchStartIndex;
@@ -278,6 +281,12 @@ public class TrayManager : MonoBehaviour
 
     private void PlayMatchAnimation(string objectID)
     {
+        // --- MATCH SESÝNÝ ÇAL ---
+        if (AudioManager.Instance != null && matchSound != null)
+        {
+            AudioManager.Instance.PlaySFX(matchSound);
+        }
+
         List<TraySlot> matchedSlots = new List<TraySlot>();
 
         foreach (Transform slot in slotContainer)
@@ -324,7 +333,6 @@ public class TrayManager : MonoBehaviour
 
         Vector3 targetPosition = centerIcon.position;
 
-        // Orijinal Süre: 0.18f
         leftClone.rectTransform
           .DOMove(targetPosition, 0.18f)
           .SetEase(Ease.InOutQuad)
@@ -345,7 +353,6 @@ public class TrayManager : MonoBehaviour
     {
         isMatching = true;
 
-        // Orijinal Beklemeler: 0.05f ve 0.18f
         yield return new WaitForSeconds(0.05f);
 
         PlayMatchAnimation(objectID);

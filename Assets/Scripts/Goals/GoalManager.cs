@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using DG.Tweening; // DOTween kütüphanesi eklendi
+using DG.Tweening;
 
 public class GoalManager : MonoBehaviour
 {
@@ -17,9 +17,11 @@ public class GoalManager : MonoBehaviour
     public GameObject goalItemPrefab;
     public GameObject winPanel;
 
+    [Header("Audio")]
+    public AudioClip goalCompleteSound; // Goal tamamlama ses dosyamýz
+
     private List<GoalItemUI> goalItems = new List<GoalItemUI>();
 
-    // Oyun kazanýldý mý kontrolü
     public bool IsGameWon { get; private set; } = false;
 
     private void Awake()
@@ -74,7 +76,7 @@ public class GoalManager : MonoBehaviour
 
                 if (AreAllGoalsCompleted() && !IsGameWon)
                 {
-                    IsGameWon = true; // Oyun kazanýldý!
+                    IsGameWon = true;
                     StartCoroutine(ShowWinPanel());
                 }
 
@@ -124,16 +126,13 @@ public class GoalManager : MonoBehaviour
     {
         Debug.Log("LEVEL COMPLETE!");
 
-        // Arka planda devam eden uçuþ veya eþleþme animasyonlarýný güvenle temizle
         DOTween.KillAll();
 
-        // 1. Sayacý (Timer) durdur
         if (TimerManager.Instance != null)
         {
             TimerManager.Instance.StopTimer();
         }
 
-        // 2. Pause butonunu kapat
         if (PauseManager.Instance != null)
         {
             PauseManager.Instance.DisablePauseButton();
@@ -143,7 +142,6 @@ public class GoalManager : MonoBehaviour
 
         if (winPanel != null)
         {
-            // WinPanel altýndaki 'OutroImage' isimli Image nesnesini arýyoruz
             Transform outroTrans = winPanel.transform.Find("OutroImage");
 
             if (outroTrans != null)
@@ -171,12 +169,10 @@ public class GoalManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        // Sahneye geçmeden önce çalýþan aktif tween kalýntýlarýný sýfýrla
         DOTween.KillAll();
 
         if (LevelManager.Instance != null)
         {
-            // LevelManager zaten sonraki level'ý kaydedip doðru sahneyi (veya MainMenu'yu) yüklüyor
             LevelManager.Instance.SaveAndAdvanceNextLevel();
         }
     }
