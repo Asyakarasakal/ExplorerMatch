@@ -8,15 +8,16 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource musicSource;
 
-    [Header("Background Music Clip")]
+    [Header("Audio Clips")]
     public AudioClip backgroundMusic;
+    public AudioClip buttonClickSound; // Menü butonlarý týklama sesi
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Sahneler arasý geçiþte müzik kesilmesin
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -24,7 +25,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        // Müzik çalmaya baþlasýn mý kontrolü ve baþlatma (Awake anýnda)
         InitMusic();
     }
 
@@ -56,13 +56,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PlayButtonClickSound()
+    {
+        if (buttonClickSound != null)
+        {
+            PlaySFX(buttonClickSound);
+        }
+    }
+
     public void SetMusicState(bool isOn)
     {
         if (musicSource != null)
         {
             musicSource.mute = !isOn;
 
-            // Eðer müzik bir þekilde durmuþsa tekrar tetikle
             if (isOn && !musicSource.isPlaying && backgroundMusic != null)
             {
                 musicSource.Play();
