@@ -62,7 +62,11 @@ public class MainMenuManager : MonoBehaviour
     private void LoadAudioSettings()
     {
         bool isMusicOn = PlayerPrefs.GetInt("MusicOn", 1) == 1;
-        AudioListener.pause = !isMusicOn;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetMusicState(isMusicOn);
+        }
     }
 
     private void LoadUserData()
@@ -135,7 +139,7 @@ public class MainMenuManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Booster_Hint", defaultBoosterAmount);
         PlayerPrefs.SetInt("Booster_Freeze", defaultBoosterAmount);
-        PlayerPrefs.SetInt("Booster_Undo", defaultBoosterAmount); // Undo artýk dâhil edildi
+        PlayerPrefs.SetInt("Booster_Undo", defaultBoosterAmount);
         PlayerPrefs.SetInt("Booster_Magnet", defaultBoosterAmount);
         PlayerPrefs.Save();
         Debug.Log("Tüm Booster'lar yüklendi! Miktar: " + defaultBoosterAmount);
@@ -150,7 +154,11 @@ public class MainMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("MusicOn", isMusicOn ? 1 : 0);
         PlayerPrefs.Save();
 
-        AudioListener.pause = !isMusicOn;
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetMusicState(isMusicOn);
+        }
+
         Debug.Log("Ana Menü - Müzik Durumu: " + (isMusicOn ? "AÇIK" : "KAPALI"));
     }
 

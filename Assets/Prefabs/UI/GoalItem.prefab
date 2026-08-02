@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 324822068232869352}
   countText: {fileID: 3875127738345692976}
+  completeEffectPrefab: {fileID: 1819025056712956630, guid: c7b4806ed0f562e48a820e1bda321757, type: 3}
 --- !u!1 &7627107344179848580
 GameObject:
   m_ObjectHideFlags: 0

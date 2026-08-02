@@ -141,6 +141,7 @@ MonoBehaviour:
   objectID: Binoculars
   objectIcon: {fileID: 21300000, guid: 595e16e6b729d904d8e7df88904031e4, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
+  selectSound: {fileID: 8300000, guid: c12c442169b182f479b97b2048de8d56, type: 3}
 --- !u!54 &-1487492445186062479
 Rigidbody:
   m_ObjectHideFlags: 0

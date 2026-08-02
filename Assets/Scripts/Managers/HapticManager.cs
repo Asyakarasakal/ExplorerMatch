@@ -18,7 +18,14 @@ public class HapticManager : MonoBehaviour
 
     public void Vibrate()
     {
-        Debug.Log("Haptic Placeholder");
+        // 1. Ayarlar menüsündeki titreþim açýk/kapalý durumunu kontrol et
+        bool isVibrationOn = PlayerPrefs.GetInt("VibrationOn", 1) == 1;
+
+        // 2. Eðer titreþim KAPALI ise fonksiyondan çýk (titreme)
+        if (!isVibrationOn)
+            return;
+
+        Debug.Log("Haptic Vibrate Worked!");
 
 #if UNITY_ANDROID && !UNITY_EDITOR
         Handheld.Vibrate();

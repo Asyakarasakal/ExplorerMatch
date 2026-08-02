@@ -141,6 +141,7 @@ MonoBehaviour:
   objectID: Tape
   objectIcon: {fileID: 21300000, guid: 88ded4cf7ef87ba418a555f17b7dcea4, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
+  selectSound: {fileID: 8300000, guid: c12c442169b182f479b97b2048de8d56, type: 3}
 --- !u!54 &6609217812044541409
 Rigidbody:
   m_ObjectHideFlags: 0

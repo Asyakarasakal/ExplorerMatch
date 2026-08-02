@@ -148,6 +148,7 @@ MonoBehaviour:
   objectID: Grape
   objectIcon: {fileID: 21300000, guid: 5c544e5bf807c3a4a839e65f0b2205a5, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
+  selectSound: {fileID: 8300000, guid: c12c442169b182f479b97b2048de8d56, type: 3}
 --- !u!54 &-8452541102730821728
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -141,6 +141,7 @@ MonoBehaviour:
   objectID: Pan
   objectIcon: {fileID: 21300000, guid: 07d1f0400b16f844ebeeb4eb7b909e52, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
+  selectSound: {fileID: 8300000, guid: c12c442169b182f479b97b2048de8d56, type: 3}
 --- !u!54 &-1683999605107258532
 Rigidbody:
   m_ObjectHideFlags: 0

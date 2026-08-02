@@ -13,7 +13,9 @@ public class SelectableObject : MonoBehaviour
     public string objectID;
     public Sprite objectIcon;
 
+    [Header("Effects & Audio")]
     [SerializeField] private ParticleSystem selectionEffectPrefab;
+    [SerializeField] private AudioClip selectSound; // Týklama ses dosyamýz
 
     void Start()
     {
@@ -41,6 +43,12 @@ public class SelectableObject : MonoBehaviour
         {
             Debug.Log("Tray dolu!");
             return;
+        }
+
+        // --- TIKLAMA SESÝ ÇALMA ---
+        if (AudioManager.Instance != null && selectSound != null)
+        {
+            AudioManager.Instance.PlaySFX(selectSound);
         }
 
         isSelected = true;
@@ -71,8 +79,6 @@ public class SelectableObject : MonoBehaviour
         pickupSequence.Join(transform.DOMove(targetPosition, 0.18f).SetEase(Ease.InCubic));
         pickupSequence.Join(transform.DORotate(new Vector3(0f, 0f, 15f), 0.18f).SetEase(Ease.OutSine));
 
-        // BURADAKÝ CollectGoal ÇAÐRISI REMOVE EDÝLDÝ (Aþaðýdaki OnComplete içine taþýndý)
-
         pickupSequence.OnComplete(() =>
         {
             TraySlot traySlot = targetSlot.GetComponent<TraySlot>();
@@ -90,7 +96,6 @@ public class SelectableObject : MonoBehaviour
 
             BoardManager.Instance?.RemoveObject(this);
 
-            // OBJE TRAY'E YERLEÞTÝKTEN SONRA HEDEFÝ SAYIYORUZ:
             if (GoalManager.Instance != null)
             {
                 GoalManager.Instance.CollectGoal(objectID);

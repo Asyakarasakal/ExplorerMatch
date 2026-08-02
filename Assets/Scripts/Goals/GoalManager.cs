@@ -139,7 +139,7 @@ public class GoalManager : MonoBehaviour
             PauseManager.Instance.DisablePauseButton();
         }
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
 
         if (winPanel != null)
         {

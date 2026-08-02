@@ -141,6 +141,7 @@ MonoBehaviour:
   objectID: Meatballs
   objectIcon: {fileID: 21300000, guid: 53fd549eee684db4887a0b856c1df712, type: 3}
   selectionEffectPrefab: {fileID: 6516117606009432129, guid: 7b17fe36d36e7e849a3fd90fe3e1cd9f, type: 3}
+  selectSound: {fileID: 8300000, guid: c12c442169b182f479b97b2048de8d56, type: 3}
 --- !u!54 &6425875171733930046
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -52,7 +52,11 @@ public class PauseManager : MonoBehaviour
         isSFXOn = PlayerPrefs.GetInt("SFXOn", 1) == 1;
         isVibrationOn = PlayerPrefs.GetInt("VibrationOn", 1) == 1;
 
-        AudioListener.pause = !isMusicOn;
+        // AudioListener yerine AudioManager üzerinden müziði senkronize ediyoruz
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetMusicState(isMusicOn);
+        }
     }
 
     public void UpdateLivesUI()
@@ -77,7 +81,6 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    // YENÝ DÜZELTME: PlayerPrefs üzerindeki gerçek can sayýsýný döndürür
     public int GetCurrentLives()
     {
         return PlayerPrefs.GetInt("CurrentLives", 5);
@@ -114,7 +117,6 @@ public class PauseManager : MonoBehaviour
 
     // --- AKILLI QUIT CONFIRM PANEL METOTLARI ---
 
-    // 1. Parametre alan metot (Hangi panelden gelindiðini kaydeder)
     public void OpenQuitConfirmPanel(string comingFrom)
     {
         previousPanelName = comingFrom;
@@ -126,18 +128,15 @@ public class PauseManager : MonoBehaviour
         DisablePauseButton();
     }
 
-    // 2. Parametresiz kullaným (PausePanel'deki 'X' veya 'Çýkýþ' butonundan týklandýðýnda varsayýlan PausePanel kabul eder)
     public void OpenQuitConfirmPanel()
     {
         OpenQuitConfirmPanel("PausePanel");
     }
 
-    // 3. QuitConfirmPanel üzerindeki 'X' (Geri) butonuna basýldýðýnda çaðrýlýr
     public void BackToPausePanel()
     {
         if (quitConfirmPanel != null) quitConfirmPanel.SetActive(false);
 
-        // Nereden geldiysek oraya geri dön!
         if (previousPanelName == "LosePanel")
         {
             if (LoseManager.Instance != null)
@@ -145,7 +144,7 @@ public class PauseManager : MonoBehaviour
                 LoseManager.Instance.ReopenLosePanel();
             }
         }
-        else // Varsayýlan olarak PausePanel'e dön
+        else
         {
             if (pausePanel != null)
             {
@@ -182,7 +181,11 @@ public class PauseManager : MonoBehaviour
         PlayerPrefs.SetInt("MusicOn", isMusicOn ? 1 : 0);
         PlayerPrefs.Save();
 
-        AudioListener.pause = !isMusicOn;
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetMusicState(isMusicOn);
+        }
+
         Debug.Log("In-Game Müzik Durumu: " + (isMusicOn ? "AÇIK" : "KAPALI"));
     }
 
