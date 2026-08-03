@@ -15,7 +15,7 @@ public class SelectableObject : MonoBehaviour
 
     [Header("Effects & Audio")]
     [SerializeField] private ParticleSystem selectionEffectPrefab;
-    [SerializeField] private AudioClip selectSound; // Týklama ses dosyamýz
+    [SerializeField] private AudioClip selectSound;
 
     void Start()
     {
@@ -41,11 +41,9 @@ public class SelectableObject : MonoBehaviour
 
         if (targetSlot == null)
         {
-            Debug.Log("Tray dolu!");
             return;
         }
 
-        // --- TIKLAMA SESÝ ÇALMA ---
         if (AudioManager.Instance != null && selectSound != null)
         {
             AudioManager.Instance.PlaySFX(selectSound);
@@ -54,9 +52,13 @@ public class SelectableObject : MonoBehaviour
         isSelected = true;
 
         GetComponent<Collider>().enabled = false;
-        if (outline != null) outline.enabled = false;
 
-        HapticManager.Instance?.Vibrate();
+        if (outline != null)
+        {
+            outline.OutlineColor = Color.yellow;
+            outline.OutlineWidth = 8f;
+            outline.enabled = true;
+        }
 
         if (selectionEffectPrefab != null)
         {

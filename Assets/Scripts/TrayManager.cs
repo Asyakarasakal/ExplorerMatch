@@ -20,7 +20,7 @@ public class TrayManager : MonoBehaviour
     public GameObject undoPoofPrefab;
 
     [Header("Audio")]
-    public AudioClip matchSound; // Eþleþme (Match) ses dosyamýz
+    public AudioClip matchSound;
 
     private List<Transform> slots = new List<Transform>();
 
@@ -123,7 +123,6 @@ public class TrayManager : MonoBehaviour
             if (item.Value >= 3)
             {
                 matchFound = true;
-                Debug.Log("MATCH");
 
                 HapticManager.Instance?.Vibrate();
 
@@ -281,7 +280,6 @@ public class TrayManager : MonoBehaviour
 
     private void PlayMatchAnimation(string objectID)
     {
-        // --- MATCH SESÝNÝ ÇAL ---
         if (AudioManager.Instance != null && matchSound != null)
         {
             AudioManager.Instance.PlaySFX(matchSound);
@@ -447,7 +445,6 @@ public class TrayManager : MonoBehaviour
 
         if (lastOccupiedSlot == null)
         {
-            Debug.Log("Undo: Yuvada geri alýnacak obje yok!");
             return false;
         }
 

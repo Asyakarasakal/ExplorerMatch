@@ -40,19 +40,16 @@ public class GoalItemUI : MonoBehaviour
 
     private IEnumerator HideRoutine()
     {
-        // --- GOAL TAMAMLANMA SESÝNÝ ÇAL ---
         if (AudioManager.Instance != null && GoalManager.Instance != null && GoalManager.Instance.goalCompleteSound != null)
         {
             AudioManager.Instance.PlaySFX(GoalManager.Instance.goalCompleteSound);
         }
 
-        // Önce hafif büyüsün
         yield return transform
             .DOScale(1.1f, 0.12f)
             .SetEase(Ease.OutBack)
             .WaitForCompletion();
 
-        // Sonra küçülerek ve þeffaflaþarak kaybolsun
         Sequence seq = DOTween.Sequence();
 
         seq.Join(transform.DOScale(0f, 0.2f).SetEase(Ease.InBack));

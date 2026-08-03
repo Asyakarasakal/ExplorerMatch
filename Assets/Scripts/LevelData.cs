@@ -19,11 +19,11 @@ public class LevelData : ScriptableObject
     public int levelNumber;
     public float levelTime = 60f;
 
-    [Header("Goal Card (Görev Kartý Visual)")]
-    public Sprite goalCardSprite; // Her level'ýn baþlangýç kartýnda görünecek özel görsel
+    [Header("Goal Card Visual")]
+    public Sprite goalCardSprite;
 
-    [Header("Level Outro Card (Seviye Bitiþ Görseli)")]
-    public Sprite levelOutroSprite; // Her level'ýn Win Panelinde görünecek özel görsel!
+    [Header("Level Outro Card")]
+    public Sprite levelOutroSprite;
 
     [Header("Level Objects")]
     public List<LevelObject> levelObjects = new List<LevelObject>();

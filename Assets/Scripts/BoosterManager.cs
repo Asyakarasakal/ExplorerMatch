@@ -9,15 +9,15 @@ public class BoosterManager : MonoBehaviour
 {
     public static BoosterManager Instance;
 
-    [Header("Booster Miktarlarý (PlayerPrefs Kayýtlý)")]
+    [Header("Booster Amounts")]
     public int defaultBoosterAmount = 3;
 
-    [Header("UI Elemanlarý - Textler")]
+    [Header("UI Elements - Texts")]
     public TMP_Text hintCountText;
     public TMP_Text freezeCountText;
     public TMP_Text undoCountText;
 
-    [Header("UI Elemanlarý - Butonlar")]
+    [Header("UI Elements - Buttons")]
     public Button hintButton;
     public Button freezeButton;
     public Button undoButton;
@@ -30,7 +30,7 @@ public class BoosterManager : MonoBehaviour
     private int undoCount;
 
     private bool isFrozen = false;
-    private bool isHintActive = false; // Hint efekti sürerken tekrar basýlmasýný engeller
+    private bool isHintActive = false;
 
     private void Awake()
     {
@@ -66,20 +66,13 @@ public class BoosterManager : MonoBehaviour
         if (undoCountText != null) undoCountText.text = undoCount.ToString();
     }
 
-    // --- BOOSTER TIKLAMA METOTLARI ---
-
     public void UseHintBooster()
     {
-        // Zaman durduysa, Game Over olduysa veya Hint efekti hâlâ devredeyse çalýþtýrma
         if (Time.timeScale == 0 || (LoseManager.Instance != null && LoseManager.Instance.IsGameOver) || isHintActive) return;
 
         if (hintCount > 0)
         {
             ExecuteHintLogic();
-        }
-        else
-        {
-            Debug.Log("Hint Booster kalmadý!");
         }
     }
 
@@ -95,14 +88,6 @@ public class BoosterManager : MonoBehaviour
 
             StartCoroutine(ExecuteFreezeRoutine(10f));
         }
-        else if (isFrozen)
-        {
-            Debug.Log("Zaman zaten dondurulmuþ durumda!");
-        }
-        else
-        {
-            Debug.Log("Freeze Booster kalmadý!");
-        }
     }
 
     public void UseUndoBooster()
@@ -116,29 +101,14 @@ public class BoosterManager : MonoBehaviour
                 undoCount--;
                 SaveBoosterCount("Booster_Undo", undoCount);
                 UpdateUI();
-
-                Debug.Log($"BOOSTER: Undo kullanýldý! Kalan Undo: {undoCount}");
             }
-            else
-            {
-                Debug.Log("Undo kullanýlamadý: Yuvada geri alýnacak obje yok!");
-            }
-        }
-        else
-        {
-            Debug.Log("Undo Booster kalmadý!");
         }
     }
 
-    // --- MEKANÝK MANTIKLARI ---
-
     private void ExecuteHintLogic()
     {
-        Debug.Log("BOOSTER: Hint kullanýldý! Eksik Goal (Hedef) objeleri aranýyor...");
-
         if (GoalManager.Instance == null)
         {
-            Debug.LogWarning("Hint: GoalManager sahnede bulunamadý!");
             return;
         }
 
@@ -146,7 +116,6 @@ public class BoosterManager : MonoBehaviour
 
         if (activeGoalIDs == null || activeGoalIDs.Count == 0)
         {
-            Debug.Log("Hint: Tamamlanmamýþ aktif hedef kalmadý!");
             return;
         }
 
@@ -194,24 +163,17 @@ public class BoosterManager : MonoBehaviour
 
         if (targetObjects == null || targetObjects.Count == 0)
         {
-            Debug.LogWarning("Hint: Eksik hedeflere ait sahnede obje bulunamadý!");
             return;
         }
 
-        // Objeler bulundu, Hint kullaným hakkýný düþ ve kilitle
         hintCount--;
         SaveBoosterCount("Booster_Hint", hintCount);
         UpdateUI();
 
         int highlightCount = Mathf.Min(targetObjects.Count, 3);
         StartCoroutine(ExecuteHintRoutine(targetObjects, highlightCount, 8f));
-
-        Debug.Log($"Hint: Goal olan {highlightCount} adet '{targetObjects[0].name}' objesi parlatýldý!");
     }
 
-    /// <summary>
-    /// Hint süresince buton basýmýný engeller ve sürenin sonunda objelerin renklerini sýfýrlar.
-    /// </summary>
     private IEnumerator ExecuteHintRoutine(List<GameObject> targetObjects, int highlightCount, float duration)
     {
         isHintActive = true;
@@ -226,7 +188,6 @@ public class BoosterManager : MonoBehaviour
             }
         }
 
-        // Parlatma süresince bekle
         yield return new WaitForSeconds(duration);
 
         isHintActive = false;
@@ -239,11 +200,8 @@ public class BoosterManager : MonoBehaviour
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
         if (renderers == null || renderers.Length == 0) yield break;
 
-        // Orijinal renkleri sakla
         Dictionary<Renderer, Color> originalColors = new Dictionary<Renderer, Color>();
         Dictionary<Renderer, Color> originalEmissionColors = new Dictionary<Renderer, Color>();
-
-        Color brightNeonMagenta = new Color(3.0f, 0.0f, 1.5f, 1f);
 
         GameObject spawnedParticle = null;
         if (hintSparklePrefab != null)
@@ -263,32 +221,55 @@ public class BoosterManager : MonoBehaviour
                     {
                         originalEmissionColors[rend] = rend.material.GetColor("_EmissionColor");
                         rend.material.EnableKeyword("_EMISSION");
-                        rend.material.SetColor("_EmissionColor", new Color(1f, 0f, 0.5f) * 3f);
                     }
-
-                    // DOColor animasyonunu materyale uygula
-                    rend.material.DOColor(brightNeonMagenta, 0.25f)
-                        .SetLoops(-1, LoopType.Yoyo)
-                        .SetEase(Ease.InOutSine);
                 }
             }
         }
 
-        yield return new WaitForSeconds(duration);
+        // --- RENK RENK DÖNÜÞÜM DÖNGÜSÜ (Rainbow / Color Cycle) ---
+        float timer = 0f;
+        float colorSpeed = 2f; // Renk geçiþ hýzý (arttýrdýkça daha hýzlý renk deðiþtirir)
+
+        while (timer < duration)
+        {
+            if (obj == null) yield break; // Obje o sýrada seçilip yok edilirse hata vermesin
+
+            timer += Time.deltaTime;
+
+            // 0 ile 1 arasýnda sürekli dönen bir Hue (renk tonu) deðeri hesaplýyoruz
+            float hue = Mathf.Repeat(Time.time * colorSpeed, 1f);
+            Color rainbowColor = Color.HSVToRGB(hue, 1f, 1f); // Rengârenk canlý renk üretir
+
+            foreach (Renderer rend in renderers)
+            {
+                if (rend != null && rend.material != null)
+                {
+                    if (rend.material.HasProperty("_Color"))
+                    {
+                        rend.material.color = rainbowColor;
+                    }
+
+                    if (rend.material.HasProperty("_EmissionColor"))
+                    {
+                        // Parlamayý da renge uygun þekilde güçlendiriyoruz
+                        rend.material.SetColor("_EmissionColor", rainbowColor * 2.5f);
+                    }
+                }
+            }
+
+            yield return null; // Her karede rengi güncelle
+        }
 
         if (spawnedParticle != null)
         {
             Destroy(spawnedParticle);
         }
 
-        // Orijinal renklerine geri döndür
+        // --- ORÝJÝNAL RENKLERÝNE GERÝ DÖNDÜR ---
         foreach (Renderer rend in renderers)
         {
             if (rend != null && rend.material != null)
             {
-                // Animasyonlarý durdur
-                rend.material.DOKill();
-
                 if (originalColors.ContainsKey(rend))
                 {
                     rend.material.color = originalColors[rend];
@@ -317,7 +298,6 @@ public class BoosterManager : MonoBehaviour
         if (TimerManager.Instance != null)
         {
             TimerManager.Instance.SetBoosterFreeze(true);
-            Debug.Log("BOOSTER: Zaman " + duration + " saniyeliðine donduruldu!");
         }
 
         yield return new WaitForSecondsRealtime(duration);
@@ -325,7 +305,6 @@ public class BoosterManager : MonoBehaviour
         if (TimerManager.Instance != null)
         {
             TimerManager.Instance.SetBoosterFreeze(false);
-            Debug.Log("BOOSTER: Zaman dondurma bitti, süre devam ediyor.");
         }
 
         isFrozen = false;

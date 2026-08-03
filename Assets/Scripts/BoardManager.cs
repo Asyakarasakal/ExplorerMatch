@@ -9,7 +9,7 @@ public class BoardManager : MonoBehaviour
     public List<SelectableObject> boardObjects = new List<SelectableObject>();
 
     [Header("Prefabs for Undo")]
-    public List<SelectableObject> allObjectPrefabs = new List<SelectableObject>(); // Inspector'dan tanýmlanacak prefab listesi
+    public List<SelectableObject> allObjectPrefabs = new List<SelectableObject>();
 
     public Transform spawnArea;
 
@@ -26,7 +26,6 @@ public class BoardManager : MonoBehaviour
     public void RemoveObject(SelectableObject obj)
     {
         boardObjects.Remove(obj);
-        Debug.Log("Board Object Count: " + boardObjects.Count);
     }
 
     public bool IsBoardEmpty()
@@ -34,9 +33,6 @@ public class BoardManager : MonoBehaviour
         return boardObjects.Count == 0;
     }
 
-    /// <summary>
-    /// ID'si verilen objenin Prefab'ýný listeden arar ve getirir.
-    /// </summary>
     public SelectableObject GetPrefabByID(string id)
     {
         foreach (SelectableObject prefab in allObjectPrefabs)

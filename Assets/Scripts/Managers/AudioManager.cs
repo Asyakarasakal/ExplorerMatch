@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Clips")]
     public AudioClip backgroundMusic;
-    public AudioClip buttonClickSound; // Menü butonlarý týklama sesi
+    public AudioClip buttonClickSound;
 
     private void Awake()
     {

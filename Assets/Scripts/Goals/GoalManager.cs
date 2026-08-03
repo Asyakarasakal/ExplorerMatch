@@ -18,7 +18,7 @@ public class GoalManager : MonoBehaviour
     public GameObject winPanel;
 
     [Header("Audio")]
-    public AudioClip goalCompleteSound; // Goal tamamlama ses dosyamýz
+    public AudioClip goalCompleteSound;
 
     private List<GoalItemUI> goalItems = new List<GoalItemUI>();
 
@@ -124,8 +124,6 @@ public class GoalManager : MonoBehaviour
 
     private IEnumerator ShowWinPanel()
     {
-        Debug.Log("LEVEL COMPLETE!");
-
         DOTween.KillAll();
 
         if (TimerManager.Instance != null)

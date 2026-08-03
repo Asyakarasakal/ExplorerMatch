@@ -18,18 +18,16 @@ public class PauseManager : MonoBehaviour
     public GameObject losePanel;
     public GameObject winPanel;
 
-    [Header("UI Displays (Opsiyonel / Oyun Ýçinde Silinebilir)")]
-    public TextMeshProUGUI livesText; // Oyun içinde kullanýlmýyorsa Inspector'da boþ kalabilir
+    [Header("UI Displays")]
+    public TextMeshProUGUI livesText;
 
     [Header("Scene Names")]
     public string mainMenuSceneName = "MainMenu";
 
-    // Dynamic state variables
     private bool isMusicOn;
     private bool isSFXOn;
     private bool isVibrationOn;
 
-    // YENÝ: Onay panelini açan önceki paneli hafýzada tutar ("PausePanel" veya "LosePanel")
     private string previousPanelName = "";
 
     private void Awake()
@@ -52,7 +50,6 @@ public class PauseManager : MonoBehaviour
         isSFXOn = PlayerPrefs.GetInt("SFXOn", 1) == 1;
         isVibrationOn = PlayerPrefs.GetInt("VibrationOn", 1) == 1;
 
-        // AudioListener yerine AudioManager üzerinden müziði senkronize ediyoruz
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.SetMusicState(isMusicOn);
@@ -77,7 +74,6 @@ public class PauseManager : MonoBehaviour
             PlayerPrefs.SetInt("CurrentLives", currentLives);
             PlayerPrefs.Save();
             UpdateLivesUI();
-            Debug.Log("Oyundan çýkýldý, 1 Can Düþtü! Kalan Can: " + currentLives);
         }
     }
 
@@ -114,8 +110,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         EnablePauseButton();
     }
-
-    // --- AKILLI QUIT CONFIRM PANEL METOTLARI ---
 
     public void OpenQuitConfirmPanel(string comingFrom)
     {
@@ -173,8 +167,6 @@ public class PauseManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // --- TOGGLE SETTINGS (SENKRONÝZE) ---
-
     public void ToggleMusic()
     {
         isMusicOn = !isMusicOn;
@@ -185,8 +177,6 @@ public class PauseManager : MonoBehaviour
         {
             AudioManager.Instance.SetMusicState(isMusicOn);
         }
-
-        Debug.Log("In-Game Müzik Durumu: " + (isMusicOn ? "AÇIK" : "KAPALI"));
     }
 
     public void ToggleSFX()
@@ -194,8 +184,6 @@ public class PauseManager : MonoBehaviour
         isSFXOn = !isSFXOn;
         PlayerPrefs.SetInt("SFXOn", isSFXOn ? 1 : 0);
         PlayerPrefs.Save();
-
-        Debug.Log("In-Game Ses Efektleri: " + (isSFXOn ? "AÇIK" : "KAPALI"));
     }
 
     public void ToggleVibration()
@@ -203,7 +191,5 @@ public class PauseManager : MonoBehaviour
         isVibrationOn = !isVibrationOn;
         PlayerPrefs.SetInt("VibrationOn", isVibrationOn ? 1 : 0);
         PlayerPrefs.Save();
-
-        Debug.Log("In-Game Titreþim: " + (isVibrationOn ? "AÇIK" : "KAPALI"));
     }
 }

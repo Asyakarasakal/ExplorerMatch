@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -20,7 +22,7 @@ public class MainMenuManager : MonoBehaviour
     [Header("Profile Name Input")]
     public TMP_InputField nameInputField;
 
-    [Header("Can (Lives) Settings")]
+    [Header("Lives Settings")]
     public int maxLives = 5;
     private int currentLives;
 
@@ -31,10 +33,12 @@ public class MainMenuManager : MonoBehaviour
     public string gameSceneName = "GameScene";
 
     private CanvasGroup mainCanvasGroup;
+    private bool isLoading = false;
 
     private void Awake()
     {
         Instance = this;
+        Application.targetFrameRate = 60;
     }
 
     private void Start()
@@ -84,7 +88,6 @@ public class MainMenuManager : MonoBehaviour
     {
         PlayerPrefs.SetString("PlayerName", newName);
         PlayerPrefs.Save();
-        Debug.Log("Kullanýcý adý kaydedildi: " + newName);
     }
 
     public void UpdateUI()
@@ -98,18 +101,27 @@ public class MainMenuManager : MonoBehaviour
         if (livesText != null) livesText.text = currentLives.ToString();
     }
 
-    // --- GAMEPLAY ACTIONS ---
-
     public void PlayGame()
     {
+        if (isLoading) return;
+
         if (currentLives > 0)
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene(gameSceneName);
+            StartCoroutine(LoadSceneAsyncRoutine());
         }
-        else
+    }
+
+    private IEnumerator LoadSceneAsyncRoutine()
+    {
+        isLoading = true;
+        SetMainPanelInteraction(false);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(gameSceneName);
+
+        while (!asyncLoad.isDone)
         {
-            Debug.LogWarning("Canýn bitti! Oyuna girmek için Ayarlar'dan can yükle.");
+            yield return null;
         }
     }
 
@@ -130,10 +142,7 @@ public class MainMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("CurrentLives", currentLives);
         PlayerPrefs.Save();
         UpdateUI();
-        Debug.Log("Canlar fullendi! Mevcut Can: " + currentLives);
     }
-
-    // --- BOOSTER REFILL ACTION ---
 
     public void RefillBoosters()
     {
@@ -142,10 +151,7 @@ public class MainMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("Booster_Undo", defaultBoosterAmount);
         PlayerPrefs.SetInt("Booster_Magnet", defaultBoosterAmount);
         PlayerPrefs.Save();
-        Debug.Log("Tüm Booster'lar yüklendi! Miktar: " + defaultBoosterAmount);
     }
-
-    // --- TOGGLE SETTINGS ---
 
     public void ToggleMusic()
     {
@@ -158,8 +164,6 @@ public class MainMenuManager : MonoBehaviour
         {
             AudioManager.Instance.SetMusicState(isMusicOn);
         }
-
-        Debug.Log("Ana Menü - Müzik Durumu: " + (isMusicOn ? "AÇIK" : "KAPALI"));
     }
 
     public void ToggleSFX()
@@ -168,8 +172,6 @@ public class MainMenuManager : MonoBehaviour
         isSFXOn = !isSFXOn;
         PlayerPrefs.SetInt("SFXOn", isSFXOn ? 1 : 0);
         PlayerPrefs.Save();
-
-        Debug.Log("Ana Menü - Ses Efektleri: " + (isSFXOn ? "AÇIK" : "KAPALI"));
     }
 
     public void ToggleVibration()
@@ -178,11 +180,7 @@ public class MainMenuManager : MonoBehaviour
         isVibrationOn = !isVibrationOn;
         PlayerPrefs.SetInt("VibrationOn", isVibrationOn ? 1 : 0);
         PlayerPrefs.Save();
-
-        Debug.Log("Ana Menü - Titreþim: " + (isVibrationOn ? "AÇIK" : "KAPALI"));
     }
-
-    // --- PANEL CONTROLS ---
 
     public void OpenSettings()
     {
@@ -217,8 +215,6 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    // --- PROFILE ACTIONS ---
-
     public void ResetPlayerName()
     {
         if (nameInputField != null)
@@ -227,7 +223,6 @@ public class MainMenuManager : MonoBehaviour
             PlayerPrefs.DeleteKey("PlayerName");
             PlayerPrefs.Save();
             nameInputField.ActivateInputField();
-            Debug.Log("Kullanýcý adý sýfýrlandý!");
         }
     }
 }

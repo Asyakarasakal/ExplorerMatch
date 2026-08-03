@@ -22,12 +22,12 @@ public class LevelManager : MonoBehaviour
     public TMP_Text levelText;
 
     [Header("Goal Card UI References")]
-    public GameObject levelStartPanel; // Görev Kartý Paneli
-    public Image goalCardImage;         // Görev Görseli
-    public Button playButton;           // Oyna Butonu
+    public GameObject levelStartPanel;
+    public Image goalCardImage;
+    public Button playButton;
 
     [Header("Scene Settings")]
-    public string mainMenuSceneName = "MainMenu"; // Ana Menü sahne adý
+    public string mainMenuSceneName = "MainMenu";
 
     private const string LEVEL_SAVE_KEY = "CurrentLevel";
 
@@ -58,14 +58,13 @@ public class LevelManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         FindAndUpdateLevelUI();
-        StartCoroutine(SetupGoalCardRoutine());
+        SetupGoalCard();
     }
 
     public void LoadSavedLevel()
     {
         if (levels == null || levels.Count == 0)
         {
-            Debug.LogWarning("LevelManager: Levels listesi boþ!");
             return;
         }
 
@@ -79,18 +78,14 @@ public class LevelManager : MonoBehaviour
         currentLevel = levels[currentLevelIndex];
 
         FindAndUpdateLevelUI();
-
-        Debug.Log("Loaded Level Index => " + currentLevelIndex);
     }
 
     public void SaveAndAdvanceNextLevel()
     {
         int nextLevelIndex = currentLevelIndex + 1;
 
-        // EÐER SON LEVEL BÝTTÝYSE (Örn: 10. level tamamlandýysa)
         if (levels != null && nextLevelIndex >= levels.Count)
         {
-            // Ýlerlemeyi bir sonraki oyunda 1. seviyeden baþlasýn diye sýfýrla
             PlayerPrefs.SetInt(LEVEL_SAVE_KEY, 0);
             PlayerPrefs.Save();
             currentLevelIndex = 0;
@@ -100,15 +95,11 @@ public class LevelManager : MonoBehaviour
                 currentLevel = levels[0];
             }
 
-            Debug.Log("Tüm seviyeler tamamlandý! Ana Menü'ye dönülüyor...");
-
-            // Zaman akýþýný normale alýp Ana Menü sahnesini yükle
             Time.timeScale = 1f;
             SceneManager.LoadScene(mainMenuSceneName);
             return;
         }
 
-        // HAKEN SON LEVEL DEÐÝLSE: Sonraki level'a geç ve kaydet
         currentLevelIndex = nextLevelIndex;
 
         PlayerPrefs.SetInt(LEVEL_SAVE_KEY, currentLevelIndex);
@@ -119,9 +110,6 @@ public class LevelManager : MonoBehaviour
             currentLevel = levels[currentLevelIndex];
         }
 
-        Debug.Log("Saved Next Level Index => " + currentLevelIndex);
-
-        // Sahneyi yeniden yükle (Yeni level baþlasýn)
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -130,7 +118,7 @@ public class LevelManager : MonoBehaviour
     {
         if (levelText == null)
         {
-            GameObject textObj = FindObjectEvenIfInactive("LevelText");
+            GameObject textObj = FindObjectInActiveScene("LevelText");
             if (textObj != null)
             {
                 levelText = textObj.GetComponent<TMP_Text>();
@@ -143,21 +131,15 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Görev Kartýný kurar, görselini atar, butona dinleyici ekler ve arkaya týklanmasýný engeller.
-    /// </summary>
-    private IEnumerator SetupGoalCardRoutine()
+    private void SetupGoalCard()
     {
-        yield return null; // 1 frame bekle
-
         if (levelStartPanel == null)
         {
-            levelStartPanel = FindObjectEvenIfInactive("LevelStartPanel");
+            levelStartPanel = FindObjectInActiveScene("LevelStartPanel");
         }
 
         if (levelStartPanel != null)
         {
-            // Panel üzerindeki Image bileþeninin týk geçirmesini kesinleþtiriyoruz
             Image bgImage = levelStartPanel.GetComponent<Image>();
             if (bgImage != null)
             {
@@ -176,20 +158,17 @@ public class LevelManager : MonoBehaviour
                 if (btnTrans != null) playButton = btnTrans.GetComponent<Button>();
             }
 
-            // Oyna Butonu týklamasýný LevelManager içinde dinliyoruz
             if (playButton != null)
             {
                 playButton.onClick.RemoveAllListeners();
                 playButton.onClick.AddListener(StartLevelGame);
             }
 
-            // O anki level'ýn görselini karta bas
             if (currentLevel != null && currentLevel.goalCardSprite != null && goalCardImage != null)
             {
                 goalCardImage.sprite = currentLevel.goalCardSprite;
             }
 
-            // Paneli aç ve oyunu/süreyi dondur
             levelStartPanel.SetActive(true);
 
             if (TimerManager.Instance != null)
@@ -199,9 +178,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Görev Kartýndaki Oyna butonuna basýlýnca çalýþýr
-    /// </summary>
     public void StartLevelGame()
     {
         if (levelStartPanel != null)
@@ -209,23 +185,26 @@ public class LevelManager : MonoBehaviour
             levelStartPanel.SetActive(false);
         }
 
-        // Oyunu ve süreyi baþlat
         if (TimerManager.Instance != null)
         {
             TimerManager.Instance.TogglePause(false);
         }
-
-        Debug.Log("LevelManager: Oyna butonuna basýldý, level baþladý!");
     }
 
-    private GameObject FindObjectEvenIfInactive(string objectName)
+    private GameObject FindObjectInActiveScene(string objectName)
     {
-        GameObject[] allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
-        foreach (GameObject obj in allObjects)
+        Scene activeScene = SceneManager.GetActiveScene();
+        GameObject[] rootObjects = activeScene.GetRootGameObjects();
+
+        foreach (GameObject root in rootObjects)
         {
-            if (obj.hideFlags == HideFlags.None && obj.name == objectName && obj.scene.isLoaded)
+            Transform[] transforms = root.GetComponentsInChildren<Transform>(true);
+            foreach (Transform t in transforms)
             {
-                return obj;
+                if (t.gameObject.name == objectName)
+                {
+                    return t.gameObject;
+                }
             }
         }
         return null;
@@ -242,6 +221,5 @@ public class LevelManager : MonoBehaviour
             currentLevel = levels[0];
         }
         FindAndUpdateLevelUI();
-        Debug.Log("Level ilerlemesi sýfýrlandý!");
     }
 }
